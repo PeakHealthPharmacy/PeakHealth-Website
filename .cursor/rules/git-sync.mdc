@@ -1,0 +1,33 @@
+---
+description: Pull latest from GitHub before work; keep all laptops in sync via main
+alwaysApply: true
+---
+
+# Git sync across laptops
+
+GitHub `main` is the single source of truth — not local files on any one machine.
+
+## Start of every session (before reading or editing code)
+
+1. Run `git fetch origin` then `git status` to see if the local branch is behind `origin/main`.
+2. If behind, or if the user may have pushed from another laptop, run `git pull origin main` (use `git pull --rebase origin main` if there are only unpushed local commits and a fast-forward is not possible).
+3. If pull fails due to local uncommitted changes, tell the user and help them stash, commit, or discard before pulling — do not overwrite their work silently.
+4. After a successful pull, briefly confirm the repo is up to date (e.g. "Pulled latest from GitHub; on main, up to date").
+
+Do this even when the user does not mention sync — they work from multiple laptops.
+
+## During work
+
+- Do not assume local files are current without checking git status first.
+- If `git status` shows divergence from `origin/main` mid-session, pause and sync before continuing.
+
+## End of session (after making changes)
+
+- Only commit when the user explicitly asks.
+- After changes are committed, remind the user to push to `origin main` so other laptops and Netlify stay current.
+- Deploy path: push to `main` triggers Netlify deploy.
+
+## Remote
+
+- Repository: `https://github.com/PeakHealthPharmacy/PeakHealth-Website.git`
+- Default branch: `main`
