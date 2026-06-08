@@ -2663,6 +2663,16 @@ section {
     color: var(--color-primary-dark);
     margin-bottom: 0.75rem;
     font-size: 1.1rem;
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+.treatment-card u {
+    text-decoration-color: var(--color-primary);
+    text-underline-offset: 2px;
+    font-weight: 500;
 }
 
 .treatment-card__label {
