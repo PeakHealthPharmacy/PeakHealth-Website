@@ -793,6 +793,13 @@ section {
     transition: opacity 1.5s ease;
 }
 
+.slide-team {
+    background-image: url('../images/slideshow/peakhealth-team.png');
+    background-position: center 30%;
+    background-color: rgba(0, 0, 0, 0.18);
+    background-blend-mode: overlay;
+}
+
 .slide1 {
     background-image: url('../images/slideshow/new pharmacist consulting.webp');
     background-color: rgba(0, 0, 0, 0.5);
