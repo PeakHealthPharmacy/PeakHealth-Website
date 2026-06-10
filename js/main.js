@@ -756,3 +756,70 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Make whole content panels clickable (not just the text link inside).
+// Rule: a panel is only made clickable if it contains exactly ONE link.
+// Panels with no link, or with more than one link, are left untouched.
+document.addEventListener('DOMContentLoaded', function() {
+    const panels = document.querySelectorAll('.service-card, .service-panel, .news-card');
+
+    panels.forEach(panel => {
+        const links = panel.querySelectorAll('a[href]');
+        if (links.length !== 1) return;
+
+        const primary = links[0];
+        panel.classList.add('panel-clickable');
+
+        panel.addEventListener('click', function(e) {
+            // Let the real link (or any button) behave normally
+            if (e.target.closest('a, button')) return;
+            // Don't navigate while the user is selecting text
+            const selection = window.getSelection && window.getSelection().toString();
+            if (selection && selection.length > 0) return;
+
+            const href = primary.getAttribute('href');
+            if (primary.target === '_blank' || e.metaKey || e.ctrlKey) {
+                window.open(href, '_blank', 'noopener');
+            } else {
+                window.location.href = href;
+            }
+        });
+    });
+});
+
+// Make whole content panels clickable (not just the text link inside)
+document.addEventListener('DOMContentLoaded', function() {
+    const panels = document.querySelectorAll('.service-card, .service-panel, .news-card');
+
+    panels.forEach(panel => {
+        const links = Array.from(panel.querySelectorAll('a[href]'));
+        if (links.length === 0) return;
+
+        // Navigational links = anything that isn't an action button (e.g. "Book Now")
+        const navLinks = links.filter(a => !a.classList.contains('btn'));
+        const candidates = navLinks.length ? navLinks : links;
+
+        // If the panel points to more than one distinct destination, leave it alone to avoid hijacking
+        const uniqueHrefs = new Set(candidates.map(a => a.getAttribute('href')));
+        if (uniqueHrefs.size !== 1) return;
+
+        const primary = candidates[0];
+        panel.classList.add('panel-clickable');
+
+        panel.addEventListener('click', function(e) {
+            // Let real links/buttons behave normally
+            if (e.target.closest('a, button')) return;
+            // Don't navigate while the user is selecting text
+            const selection = window.getSelection && window.getSelection().toString();
+            if (selection && selection.length > 0) return;
+
+            const href = primary.getAttribute('href');
+            const openNewTab = primary.target === '_blank' || e.metaKey || e.ctrlKey;
+            if (openNewTab) {
+                window.open(href, primary.target === '_blank' ? '_blank' : '_blank', 'noopener');
+            } else {
+                window.location.href = href;
+            }
+        });
+    });
+});

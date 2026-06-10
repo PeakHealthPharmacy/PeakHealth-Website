@@ -793,6 +793,11 @@ section {
     z-index: 0;
 }
 
+/* Whole-panel click affordance (enhanced via JS for panels with a single link) */
+.panel-clickable {
+    cursor: pointer;
+}
+
 .slideshow-slide {
     position: absolute;
     top: 0;
