@@ -193,6 +193,33 @@
                         <a href="book-consultation" class="btn btn--primary btn--large">Book A Consultation</a>
                         <a href="contact#delivery-signup" class="btn btn--secondary btn--large">Prescription Sign Up</a>
                     </div>
+
+                    <!-- Service Finder Search Bar -->
+                    <div class="service-search" role="search">
+                        <label for="service-search-input" class="service-search__label">Find a service quickly</label>
+                        <div class="service-search__wrapper">
+                            <i class="fas fa-search service-search__icon" aria-hidden="true"></i>
+                            <input
+                                type="search"
+                                id="service-search-input"
+                                class="service-search__input"
+                                placeholder="Search services, prescriptions, clinics or health support…"
+                                autocomplete="off"
+                                aria-label="Search services, prescriptions, clinics or health support"
+                                aria-autocomplete="list"
+                                aria-controls="service-search-results"
+                                aria-expanded="false"
+                                aria-haspopup="listbox"
+                            >
+                        </div>
+                        <ul
+                            id="service-search-results"
+                            class="service-search__results"
+                            role="listbox"
+                            aria-label="Service suggestions"
+                            hidden
+                        ></ul>
+                    </div>
                 </div>
             </div>
         </section>

@@ -823,3 +823,181 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// =============================================
+// Service Finder Search Bar
+// =============================================
+(function () {
+    var searchIndex = [
+        { title: 'Prescriptions & Dispensing',      url: 'services#prescriptions',       icon: 'fa-pills',          keywords: ['prescription', 'prescriptions', 'dispensing', 'medication', 'repeat', 'medicines', 'collect', 'collection', 'repeat prescription'] },
+        { title: '24-Hour Prescription Collection', url: 'services#prescriptions',       icon: 'fa-pills',          keywords: ['24 hour', '24-hour', 'collection point', 'ps24', 'collect prescription', 'pick up', 'anytime', '24hr'] },
+        { title: 'Free Home Delivery',              url: 'services#delivery',            icon: 'fa-truck',          keywords: ['delivery', 'home delivery', 'free delivery', 'doorstep', 'deliver', 'prescription delivery'] },
+        { title: 'Weight Management Clinic',        url: 'weight-management',            icon: 'fa-heartbeat',      keywords: ['weight', 'weight management', 'slimming', 'bmi', 'obesity', 'weight loss', 'mounjaro', 'wegovy', 'semaglutide', 'ozempic'] },
+        { title: "Men's Health",                    url: 'mens-health',                  icon: 'fa-user',           keywords: ["men's health", 'mens health', 'men health', 'men'] },
+        { title: 'Erectile Dysfunction',            url: 'mens-health',                  icon: 'fa-user',           keywords: ['erectile dysfunction', 'ed', 'impotence', 'viagra', 'sildenafil', 'erectile'] },
+        { title: 'Hair Loss Treatment',             url: 'mens-health',                  icon: 'fa-user',           keywords: ['hair loss', 'hair', 'baldness', 'alopecia', 'finasteride', 'thinning'] },
+        { title: "Women's Health",                  url: 'womens-health',                icon: 'fa-user',           keywords: ["women's health", 'womens health', 'women health', 'contraception', 'emergency contraception', 'period', 'menopause', 'women'] },
+        { title: 'Travel Vaccines & Clinic',        url: 'travel-vaccines',              icon: 'fa-plane',          keywords: ['travel', 'travel vaccines', 'travel clinic', 'vaccines', 'vaccination', 'malaria', 'typhoid', 'holiday', 'abroad', 'jabs', 'travel health'] },
+        { title: 'Vitamin B12 Supplement',          url: 'vitamin-b12',                  icon: 'fa-syringe',        keywords: ['b12', 'vitamin b12', 'supplement', 'injection', 'energy', 'fatigue', 'vitamin', 'b 12'] },
+        { title: 'Cold Sore Treatment',             url: 'cold-sores',                   icon: 'fa-head-side-cough', keywords: ['cold sore', 'cold sores', 'herpes', 'antiviral', 'aciclovir', 'lip', 'cold'] },
+        { title: 'Health MOT',                      url: 'health-mot',                   icon: 'fa-heartbeat',      keywords: ['health mot', 'health check', 'mot', 'checkup', 'bronze', 'silver', 'gold', 'health package', 'health test'] },
+        { title: 'Health Screenings',               url: 'health-screenings',            icon: 'fa-microscope',     keywords: ['health screening', 'screening', 'health test', 'blood test', 'cholesterol', 'diabetes', 'test kit', 'check', 'hba1c'] },
+        { title: 'Gut & Digestive Health',          url: 'gut-digestive-health',         icon: 'fa-stethoscope',    keywords: ['gut', 'digestive', 'gut health', 'digestive health', 'coeliac', 'bowel', 'ibs', 'h pylori', 'stomach', 'digestion', 'bowel cancer'] },
+        { title: 'Smoking Cessation',               url: 'smoking-cessation',            icon: 'fa-ban',            keywords: ['smoking', 'stop smoking', 'smoking cessation', 'quit smoking', 'nrt', 'nicotine', 'cigarettes', 'vaping', 'quit'] },
+        { title: 'Pharmacy First (NHS)',            url: 'pharmacy-first',               icon: 'fa-hospital',       keywords: ['pharmacy first', 'nhs', 'free nhs', 'minor ailments', 'nhs services', 'national health service', 'consultation', 'free consultation', 'free service'] },
+        { title: 'Pharmacy First Plus',             url: 'pharmacy-first#plus',          icon: 'fa-hospital',       keywords: ['pharmacy first plus', 'prescribing pharmacist', 'prescriber', 'nhs prescription', 'plus'] },
+        { title: 'Ear Care',                        url: 'pharmacy-first',               icon: 'fa-plus-square',    keywords: ['ear', 'ear care', 'earache', 'ear infection', 'ear wax', 'earwax', 'ear pain'] },
+        { title: 'Blood Pressure',                  url: 'pharmacy-first',               icon: 'fa-heart',          keywords: ['blood pressure', 'hypertension', 'bp', 'bp check', 'systolic', 'high blood pressure'] },
+        { title: 'Private Services',                url: 'services#private-services',    icon: 'fa-star',           keywords: ['private', 'private services', 'private consultation', 'pay', 'no prescription', 'clinic'] },
+        { title: 'Book a Consultation',             url: 'book-consultation',            icon: 'fa-calendar-check', keywords: ['book', 'booking', 'appointment', 'book consultation', 'book appointment', 'schedule', 'reserve'] },
+        { title: 'Contact Us',                      url: 'contact',                      icon: 'fa-phone',          keywords: ['contact', 'phone', 'email', 'address', 'opening hours', 'location', 'get in touch', 'call', 'open', 'hours'] },
+        { title: 'Prescription Sign Up',            url: 'contact#delivery-signup',      icon: 'fa-clipboard-list', keywords: ['sign up', 'delivery signup', 'register', 'prescription delivery sign up', 'join', 'register for delivery'] },
+        { title: 'About PeakHealth',                url: 'about',                        icon: 'fa-info-circle',    keywords: ['about', 'about us', 'team', 'pharmacist', 'story', 'kez', 'harvie', 'peakhealth'] },
+        { title: 'News & Updates',                  url: 'news-updates',                 icon: 'fa-newspaper',      keywords: ['news', 'updates', 'blog', 'latest', 'new'] },
+    ];
+
+    var MAX_RESULTS = 5;
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var input = document.getElementById('service-search-input');
+        var resultsList = document.getElementById('service-search-results');
+
+        if (!input || !resultsList) return;
+
+        var activeIndex = -1;
+        var currentResults = [];
+
+        function getMatches(query) {
+            if (!query || query.length < 2) return [];
+            var q = query.toLowerCase().trim();
+            var matches = [];
+            var seen = {};
+
+            for (var i = 0; i < searchIndex.length; i++) {
+                var item = searchIndex[i];
+                var key = item.url + '|' + item.title;
+                if (seen[key]) continue;
+                var searchable = ([item.title].concat(item.keywords)).join(' ').toLowerCase();
+                if (searchable.indexOf(q) !== -1) {
+                    matches.push(item);
+                    seen[key] = true;
+                }
+                if (matches.length >= MAX_RESULTS) break;
+            }
+            return matches;
+        }
+
+        function renderResults(results) {
+            resultsList.innerHTML = '';
+            activeIndex = -1;
+            currentResults = results;
+
+            if (results.length === 0) {
+                var noResults = document.createElement('li');
+                noResults.className = 'service-search__no-results';
+                noResults.textContent = 'No services found — try "contact" or browse our services menu above.';
+                resultsList.appendChild(noResults);
+            } else {
+                results.forEach(function (item, idx) {
+                    var li = document.createElement('li');
+                    li.className = 'service-search__result-item';
+                    li.setAttribute('role', 'option');
+                    li.id = 'search-result-' + idx;
+
+                    var a = document.createElement('a');
+                    a.href = item.url;
+                    a.className = 'service-search__result-link';
+
+                    var icon = document.createElement('i');
+                    icon.className = 'fas ' + item.icon;
+                    icon.setAttribute('aria-hidden', 'true');
+
+                    var text = document.createTextNode(item.title);
+
+                    a.appendChild(icon);
+                    a.appendChild(text);
+                    li.appendChild(a);
+                    resultsList.appendChild(li);
+
+                    // mousedown fires before blur, so we can navigate before the input loses focus
+                    a.addEventListener('mousedown', function (e) {
+                        e.preventDefault();
+                        window.location.href = item.url;
+                    });
+                });
+            }
+
+            resultsList.removeAttribute('hidden');
+            input.setAttribute('aria-expanded', 'true');
+        }
+
+        function hideResults() {
+            resultsList.setAttribute('hidden', '');
+            input.setAttribute('aria-expanded', 'false');
+            activeIndex = -1;
+        }
+
+        function setActiveItem(index) {
+            var items = resultsList.querySelectorAll('.service-search__result-item');
+            items.forEach(function (item, i) {
+                if (i === index) {
+                    item.classList.add('service-search__result-item--active');
+                } else {
+                    item.classList.remove('service-search__result-item--active');
+                }
+            });
+            activeIndex = index;
+
+            if (index >= 0 && items[index]) {
+                input.setAttribute('aria-activedescendant', 'search-result-' + index);
+            } else {
+                input.removeAttribute('aria-activedescendant');
+            }
+        }
+
+        input.addEventListener('input', function () {
+            var query = this.value.trim();
+            if (query.length < 2) {
+                hideResults();
+                return;
+            }
+            renderResults(getMatches(query));
+        });
+
+        input.addEventListener('keydown', function (e) {
+            var items = resultsList.querySelectorAll('.service-search__result-item');
+            var isVisible = !resultsList.hasAttribute('hidden');
+
+            if (!isVisible) return;
+
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                setActiveItem(Math.min(activeIndex + 1, items.length - 1));
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                setActiveItem(Math.max(activeIndex - 1, -1));
+            } else if (e.key === 'Enter') {
+                if (activeIndex >= 0 && currentResults[activeIndex]) {
+                    e.preventDefault();
+                    window.location.href = currentResults[activeIndex].url;
+                }
+            } else if (e.key === 'Escape') {
+                hideResults();
+                input.blur();
+            }
+        });
+
+        input.addEventListener('focus', function () {
+            var query = this.value.trim();
+            if (query.length >= 2) {
+                renderResults(getMatches(query));
+            }
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.service-search')) {
+                hideResults();
+            }
+        });
+    });
+}());
