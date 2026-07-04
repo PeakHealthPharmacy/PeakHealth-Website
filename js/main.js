@@ -53,6 +53,29 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Sticky "Book a Consultation" CTA — reveal after scrolling past the hero
+document.addEventListener('DOMContentLoaded', function() {
+    const stickyCta = document.querySelector('.sticky-cta');
+    if (stickyCta) {
+        let ticking = false;
+        function updateStickyCta() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > 300) {
+                stickyCta.classList.add('sticky-cta--visible');
+            } else {
+                stickyCta.classList.remove('sticky-cta--visible');
+            }
+            ticking = false;
+        }
+        window.addEventListener('scroll', function() {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(updateStickyCta);
+        }, { passive: true });
+        updateStickyCta();
+    }
+});
+
 // Form validation for consultation booking
 const bookingForm = document.getElementById('booking-form');
 
