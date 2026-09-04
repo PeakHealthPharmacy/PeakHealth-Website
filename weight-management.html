@@ -33,7 +33,7 @@
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://peakhealthpharmacy.co.uk/weight-management">
     <meta property="twitter:title" content="Weight Management Clinic Easterhouse Glasgow | PeakHealth Pharmacy">
-    <meta property="twitter:description" content="Private weight management at PeakHealth Pharmacy, Lochend Road, Easterhouse, Glasgow G34. Pharmacist-led support — book a consultation.">
+    <meta property="twitter:description" content="Private weight management at PeakHealth Pharmacy, Lochend Road, Easterhouse, Glasgow G34. Pharmacist-led, face-to-face support — book a consultation.">
     <meta property="twitter:image" content="https://peakhealthpharmacy.co.uk/images/Weightloss%20image%20panel.avif">
 
     <!-- Canonical URL -->
@@ -68,6 +68,382 @@
         "cost": "Private service - pricing available on consultation"
     }
     </script>
+    <style>
+        /* Page-scoped visual pass — weight-management.html only */
+        .wm-page { overflow-x: hidden; }
+        .wm-page .service-detail-page { padding-bottom: 2.25rem; }
+
+        .wm-band { padding: 3.25rem 0; }
+        .wm-band--white { background: #fff; }
+        .wm-band--pale { background: #f3faf4; }
+        .wm-band--mist { background: #eef3f0; }
+        .wm-band--sage { background: #e7f3e9; }
+        .wm-band--dark {
+            background:
+                linear-gradient(rgba(27, 94, 32, 0.90), rgba(22, 78, 26, 0.92)),
+                url("images/Weight management consultation.png");
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+        .wm-band--dark .wm-section__title { color: #fff; }
+        .wm-band--dark .wm-section__title:after { background-color: #81c784; }
+
+        .wm-glance {
+            background: #e8f5e9;
+            padding: 1.35rem 0;
+            border-top: 1px solid rgba(56, 142, 60, 0.12);
+            border-bottom: 1px solid rgba(56, 142, 60, 0.12);
+        }
+        .wm-glance__list {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.75rem 1rem;
+            margin: 0;
+            padding: 0;
+        }
+        .wm-glance__item {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            flex: 0 1 auto;
+            min-width: 0;
+        }
+        .wm-glance__icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: #fff;
+            color: var(--color-primary-dark, #388E3C);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            font-size: 0.95rem;
+        }
+        .wm-glance__text {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--color-primary-dark, #388E3C);
+            line-height: 1.25;
+            white-space: nowrap;
+        }
+
+        .wm-onpage {
+            background: #fff;
+            padding: 1.1rem 0 1.25rem;
+            border-bottom: 1px solid rgba(56, 142, 60, 0.12);
+        }
+        .wm-onpage__title {
+            margin: 0 0 0.7rem;
+            padding: 0;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--color-primary-dark, #388E3C);
+            text-align: left;
+        }
+        .wm-onpage__list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem 0.5rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .wm-onpage__list a {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.38rem 0.85rem;
+            border-radius: 999px;
+            background: #f3faf4;
+            border: 1px solid rgba(56, 142, 60, 0.18);
+            color: var(--color-primary-dark, #388E3C);
+            font-size: 0.86rem;
+            font-weight: 600;
+            line-height: 1.3;
+            text-decoration: none;
+        }
+        .wm-onpage__list a:hover,
+        .wm-onpage__list a:focus-visible {
+            background: #e8f5e9;
+            color: #1b5e20;
+        }
+        .wm-onpage__list a:focus-visible {
+            outline: 2px solid var(--color-primary, #4CAF50);
+            outline-offset: 2px;
+        }
+        .wm-onpage__book {
+            background: var(--color-primary, #4CAF50);
+            border-color: var(--color-primary, #4CAF50);
+            color: #fff;
+        }
+        .wm-onpage__book:hover,
+        .wm-onpage__book:focus-visible {
+            background: var(--color-primary-dark, #388E3C);
+            border-color: var(--color-primary-dark, #388E3C);
+            color: #fff;
+        }
+        .wm-page section[id] {
+            scroll-margin-top: 5.75rem;
+        }
+
+        .wm-why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+        .wm-page .wm-why-grid .condition-card {
+            background: #fff;
+            border: 1px solid rgba(56, 142, 60, 0.12);
+            border-left: 4px solid var(--color-primary, #4CAF50);
+            box-shadow: 0 6px 16px rgba(27, 94, 32, 0.06);
+        }
+        .wm-page .wm-why-card--featured {
+            background: #f7fbf7;
+            border-left-width: 5px;
+            border-left-color: #1b5e20;
+        }
+
+        .wm-bmi {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0 1.25rem;
+        }
+        .wm-bmi__card {
+            background: #f3faf4;
+            border: 1px solid rgba(56, 142, 60, 0.16);
+            border-radius: var(--border-radius, 8px);
+            padding: 1.15rem 1.25rem;
+            text-align: center;
+        }
+        .wm-bmi__value {
+            margin: 0 0 0.4rem;
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--color-primary-dark, #388E3C);
+            line-height: 1.2;
+        }
+        .wm-bmi__card p:last-child {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--color-text, #333);
+        }
+
+        .wm-treat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.35rem;
+            margin-top: 2rem;
+        }
+        .wm-page .wm-treat-card {
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border: 1px solid rgba(56, 142, 60, 0.1);
+            border-top: 4px solid var(--color-primary, #4CAF50);
+            border-radius: var(--border-radius, 8px);
+            box-shadow: 0 10px 22px rgba(27, 94, 32, 0.08);
+        }
+        .wm-treat-card--lifestyle { border-top-color: #66bb6a; }
+        .wm-treat-card--oral { border-top-color: #42a5f5; }
+        .wm-treat-card--injectable { border-top-color: #26a69a; }
+        .wm-treat-card .condition-card__icon { color: #fff; }
+        .wm-treat-card--lifestyle .condition-card__icon {
+            background: linear-gradient(135deg, #81c784, #43a047);
+        }
+        .wm-treat-card--oral .condition-card__icon {
+            background: linear-gradient(135deg, #64b5f6, #1e88e5);
+        }
+        .wm-treat-card--injectable .condition-card__icon {
+            background: linear-gradient(135deg, #4db6ac, #00897b);
+        }
+        .wm-treat-card__meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.85rem;
+        }
+        .wm-treat-card__badge,
+        .wm-treat-card__price {
+            display: inline-block;
+            padding: 0.28rem 0.7rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            line-height: 1.3;
+        }
+        .wm-treat-card__badge {
+            background: #e8f5e9;
+            color: var(--color-primary-dark, #388E3C);
+        }
+        .wm-treat-card__price {
+            background: var(--color-primary-dark, #388E3C);
+            color: #fff;
+        }
+        .wm-pill {
+            display: inline-block;
+            margin-left: 0.25rem;
+            padding: 0.1rem 0.45rem;
+            border-radius: 999px;
+            background: #e8f5e9;
+            color: var(--color-primary-dark, #388E3C);
+            font-size: 0.72rem;
+            font-weight: 700;
+            vertical-align: middle;
+        }
+        .wm-pill--soon {
+            background: #fff3e0;
+            color: #e65100;
+        }
+        .wm-page .wm-treat-note {
+            max-width: 820px;
+            margin: 1.5rem auto 0;
+            text-align: center;
+            font-size: 0.92rem;
+            line-height: 1.55;
+            color: var(--color-text, #333);
+        }
+        .wm-page .wm-treat-note + .wm-treat-note { margin-top: 0.75rem; }
+
+        .wm-compare {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+        .wm-compare__card {
+            background: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: var(--border-radius, 8px);
+            padding: 1.5rem 1.6rem;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+        }
+        .wm-compare__card--peak {
+            border: 1px solid rgba(56, 142, 60, 0.22);
+            background: #f7fbf7;
+            box-shadow: 0 10px 22px rgba(27, 94, 32, 0.08);
+        }
+        .wm-compare__card h3 {
+            margin-bottom: 1rem;
+            color: var(--color-primary-dark, #388E3C);
+            font-size: 1.15rem;
+        }
+        .wm-compare__card ul { margin: 0; padding: 0; }
+        .wm-compare__card li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+            margin-bottom: 0.7rem;
+            font-size: 0.98rem;
+            line-height: 1.45;
+        }
+        .wm-compare__card li:last-child { margin-bottom: 0; }
+        .wm-compare__card li i {
+            margin-top: 0.2rem;
+            color: var(--color-primary, #4CAF50);
+            min-width: 16px;
+        }
+        .wm-compare__card:not(.wm-compare__card--peak) li i {
+            font-size: 0.5rem;
+            margin-top: 0.45rem;
+            color: #8a9a8e;
+        }
+
+        .wm-band--dark .testimonials-grid .testimonial-card {
+            background: #fff;
+            color: var(--color-text, #333);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+            overflow: hidden;
+            padding-bottom: 0;
+        }
+        .wm-band--dark .testimonial-card__stars {
+            font-size: 1.2rem;
+            letter-spacing: 0.08em;
+            color: #f6c445;
+        }
+        .wm-band--dark .testimonials-grid .testimonial-card__content:before {
+            font-size: 3.4rem;
+            opacity: 0.45;
+            color: var(--color-primary, #4CAF50);
+            top: -6px;
+        }
+        .wm-band--dark .testimonials-grid .testimonial-card__author {
+            background: #e8f5e9;
+            border-top: 1px solid rgba(56, 142, 60, 0.14);
+            margin: 0.75rem -1.25rem 0;
+            padding: 0.75rem 1.25rem 0.9rem;
+        }
+
+        .wm-collection-panel {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: var(--border-radius, 8px);
+            padding: 1.5rem 1.75rem;
+            border-left: 4px solid var(--color-primary, #4CAF50);
+            box-shadow: 0 6px 16px rgba(27, 94, 32, 0.06);
+        }
+        .wm-collection-panel h3 { color: var(--color-primary-dark, #388E3C); }
+        .wm-collection-panel p:last-child { margin-bottom: 0; }
+
+        @media (max-width: 1100px) {
+            .wm-glance__list { flex-wrap: wrap; justify-content: center; }
+        }
+        @media (max-width: 1024px) {
+            .wm-why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 900px) {
+            .wm-treat-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .wm-band { padding: 2.35rem 0; }
+            .wm-page .service-detail-page { padding: 2rem 0 1.5rem; }
+            .wm-page section[id] { scroll-margin-top: 4.75rem; }
+            .wm-glance { padding: 1.1rem 0; }
+            .wm-glance__list {
+                flex-direction: column;
+                flex-wrap: wrap;
+                align-items: stretch;
+                gap: 0.7rem;
+            }
+            .wm-glance__item { width: 100%; }
+            .wm-onpage { padding: 1rem 0 1.15rem; }
+            .wm-onpage__list a {
+                min-height: 44px;
+                padding: 0.55rem 0.95rem;
+            }
+            .wm-why-grid,
+            .wm-bmi,
+            .wm-compare { grid-template-columns: 1fr; }
+            .wm-treat-card__meta { flex-wrap: wrap; }
+            .wm-page .wm-treat-note { text-align: left; font-size: 0.9rem; }
+            .wm-compare__card { padding: 1.25rem 1.2rem; }
+            .wm-collection-panel { padding: 1.2rem 1.25rem; }
+            .wm-band--dark .testimonials-grid .testimonial-card__author {
+                margin-left: -1rem;
+                margin-right: -1rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+        @media (max-width: 576px) {
+            .wm-page { padding-bottom: 4.75rem; }
+            .wm-bmi__value { font-size: 1.25rem; }
+            .wm-treat-card__badge,
+            .wm-treat-card__price { font-size: 0.72rem; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .wm-page .condition-card { transition: none; }
+            .wm-page .condition-card:hover { transform: none; }
+        }
+    </style>
 </head>
 <body class="wm-page">
     <header class="header">
@@ -148,42 +524,81 @@
                 <div class="service-detail__content">
                     <div class="service-detail__image">
                         <img src="images/Weight management consultation.png" alt="Pharmacist discussing a weight management plan with a patient at PeakHealth Pharmacy, Easterhouse" class="service-detail-img">
-                        <small class="medical-review-line">Reviewed by Harvie Baker-Flanagan, GPhC 2210852 — June 2026</small>
+                        <small class="medical-review-line">Reviewed by Harvie Baker-Flanagan, GPhC 2210852 — September 2026</small>
                     </div>
                     <div class="service-detail__text">
                         <h2 class="service-detail__title">Pharmacist-led weight management support</h2>
                         <p class="service-detail__intro">PeakHealth Pharmacy provides private, pharmacist-led weight management consultations from our pharmacy on <strong>Lochend Road, Easterhouse</strong>, supporting patients across <strong>Glasgow G34</strong> and <strong>Glasgow's East End</strong>. Led by Harvie, our prescribing pharmacist, the service focuses on safe, sustainable weight loss, face-to-face consultations, thorough suitability checks and ongoing guidance throughout your journey.</p>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Oral treatment options callout -->
-                <div class="wm-oral-callout" style="max-width: 900px; margin: 2.5rem auto 0; padding: 1.5rem 1.75rem; background: #f0f8f0; border-left: 4px solid var(--color-primary, #4CAF50); border-radius: 8px;">
-                    <span style="display: inline-block; padding: 0.35rem 0.85rem; background-color: var(--color-primary, #4CAF50); color: #fff; border-radius: var(--border-radius, 6px); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.03em;">NEW</span>
-                    <h3 style="margin: 0.75rem 0 0.5rem; color: var(--color-primary-dark);">More oral weight management options</h3>
-                    <p style="margin-bottom: 0.75rem;">Wegovy (semaglutide) is now available as a once-daily tablet, providing a non-injectable treatment option for suitable patients. We also expect to introduce Foundayo (orforglipron), another newly authorised oral weight-management treatment, to PeakHealth soon.</p>
-                    <p class="text-muted" style="margin-bottom: 1.25rem;">All prescription weight-management treatments are considered following a face-to-face pharmacist consultation and individual clinical assessment.</p>
-                    <a href="https://peakhealthpharmacy.co.uk/book-consultation?service=weightloss-clinic" class="btn btn--primary">Discuss your options</a>
-                </div>
+        <!-- At a Glance -->
+        <section class="wm-glance" aria-label="Weight management at a glance">
+            <div class="container">
+                <ul class="wm-glance__list">
+                    <li class="wm-glance__item">
+                        <span class="wm-glance__icon" aria-hidden="true"><i class="fas fa-clipboard-check"></i></span>
+                        <span class="wm-glance__text">No GP referral needed</span>
+                    </li>
+                    <li class="wm-glance__item">
+                        <span class="wm-glance__icon" aria-hidden="true"><i class="fas fa-user-md"></i></span>
+                        <span class="wm-glance__text">Face-to-face care</span>
+                    </li>
+                    <li class="wm-glance__item">
+                        <span class="wm-glance__icon" aria-hidden="true"><i class="fas fa-pills"></i></span>
+                        <span class="wm-glance__text">New Oral options from £39</span>
+                    </li>
+                    <li class="wm-glance__item">
+                        <span class="wm-glance__icon" aria-hidden="true"><i class="fas fa-syringe"></i></span>
+                        <span class="wm-glance__text">Injectables from £139</span>
+                    </li>
+                    <li class="wm-glance__item">
+                        <span class="wm-glance__icon" aria-hidden="true"><i class="fas fa-file-invoice-dollar"></i></span>
+                        <span class="wm-glance__text">No hidden consultation fees</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
-                <!-- Why Choose PeakHealth -->
-                <div class="wm-section">
+        <nav class="wm-onpage" aria-label="On this page">
+            <div class="container">
+                <h2 class="wm-onpage__title">On this page</h2>
+                <ul class="wm-onpage__list">
+                    <li><a href="#why-choose">Why choose us</a></li>
+                    <li><a href="#your-journey">Your journey</a></li>
+                    <li><a href="#eligibility">Am I eligible?</a></li>
+                    <li><a href="#treatment-options">Treatment options</a></li>
+                    <li><a href="#wider-health">Wider health</a></li>
+                    <li><a href="#collection-options">Collection options</a></li>
+                    <li><a href="#patient-stories">Patient stories</a></li>
+                    <li><a href="#faqs">FAQs</a></li>
+                    <li><a class="wm-onpage__book" href="#book-now">Book now</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Why Choose PeakHealth -->
+        <section class="wm-section wm-band wm-band--white" id="why-choose">
+            <div class="container">
                     <h2 class="wm-section__title">Why Choose PeakHealth for Weight Management?</h2>
                     <p class="wm-section__intro">At PeakHealth, weight management is not treated as a quick online transaction. From our pharmacy on Lochend Road, Easterhouse, our team takes time to understand your goals, review suitability and support you throughout your journey.</p>
-                    <div class="conditions-grid">
+                    <div class="wm-why-grid">
                         <div class="condition-card">
                             <div class="condition-card__icon"><i class="fas fa-user-shield"></i></div>
                             <h3>Face-to-face, confidential support</h3>
-                            <p>Attend your local pharmacy and speak openly in a comfortable, confidential setting — not only through an online questionnaire. Your information is always treated with complete discretion by our pharmacy team.</p>
+                            <p>Speak openly in a comfortable, confidential setting at your local pharmacy — not only through an online questionnaire. Your information is always treated with complete discretion.</p>
                         </div>
-                        <div class="condition-card">
+                        <div class="condition-card wm-why-card--featured">
                             <div class="condition-card__icon"><i class="fas fa-user-md"></i></div>
                             <h3>Led by Harvie, our prescribing pharmacist</h3>
-                            <p>Harvie supports assessment, suitability reviews, safety checks and treatment discussions where clinically appropriate. As a GPhC-registered prescribing pharmacist, Harvie supports clinical assessments, suitability reviews and safe treatment discussions in line with professional guidance.</p>
+                            <p>Harvie, our GPhC-registered prescribing pharmacist, supports clinical assessments, suitability reviews, safety checks and treatment discussions where clinically appropriate.</p>
                         </div>
                         <div class="condition-card">
                             <div class="condition-card__icon"><i class="fas fa-hand-holding-heart"></i></div>
                             <h3>Real ongoing support from Kez and Harvie</h3>
-                            <p>You have local professionals to speak to for encouragement, questions and continued guidance throughout your journey — in our private consultation room at PeakHealth Pharmacy.</p>
+                            <p>Local professionals for encouragement, questions and continued guidance throughout your journey — in our private consultation room.</p>
                         </div>
                         <div class="condition-card">
                             <div class="condition-card__icon"><i class="fas fa-comments"></i></div>
@@ -198,13 +613,15 @@
                         <div class="condition-card">
                             <div class="condition-card__icon"><i class="fas fa-map-marker-alt"></i></div>
                             <h3>The value of local professional care</h3>
-                            <p>Many patients value sitting down with a healthcare professional, asking questions face-to-face, and accessing local support throughout their journey. We provide accessible support for patients throughout Easterhouse, Glasgow's East End, Baillieston, Shettleston and surrounding areas.</p>
+                            <p>Sit down with a healthcare professional, ask questions face-to-face, and access local support — from Easterhouse, Glasgow's East End, Baillieston, Shettleston and surrounding areas.</p>
                         </div>
                     </div>
-                </div>
+            </div>
+        </section>
 
-                <!-- Your Weight Management Journey -->
-                <div class="wm-section wm-section--alt">
+        <!-- Your Weight Management Journey -->
+        <section class="wm-section wm-band wm-band--mist" id="your-journey">
+            <div class="container">
                     <h2 class="wm-section__title">Your Weight Management Journey</h2>
                     <div class="process-steps" style="max-width: 800px; margin: 0 auto;">
                         <div class="process-step">
@@ -254,13 +671,25 @@
                         <a href="https://peakhealthpharmacy.co.uk/book-consultation?service=weightloss-clinic" class="btn btn--primary btn--large">Book Your Weight Management Consultation</a>
                         <p class="text-muted">In the booking menu, choose <strong>Weight Management</strong>, then <strong>Weight Loss – First Consultation</strong>.</p>
                     </div>
-                </div>
+            </div>
+        </section>
 
-                <!-- Who May Be Eligible -->
-                <div class="wm-section">
+        <!-- Who May Be Eligible -->
+        <section class="wm-section wm-band wm-band--white" id="eligibility">
+            <div class="container">
                     <h2 class="wm-section__title">Who May Be Eligible?</h2>
                     <div style="max-width: 800px; margin: 0 auto;">
                         <p>Weight management treatment options may be considered for adults who meet relevant clinical criteria, such as a BMI of 30 or above, or a BMI of 27 or above with certain weight-related health conditions such as high blood pressure, type 2 diabetes, high cholesterol or obstructive sleep apnoea. Suitability also depends on your medical history, current medicines, individual circumstances, treatment goals and appropriate safety checks.</p>
+                        <div class="wm-bmi">
+                            <div class="wm-bmi__card">
+                                <p class="wm-bmi__value">BMI 30+</p>
+                                <p>May be considered depending on health information and suitability.</p>
+                            </div>
+                            <div class="wm-bmi__card">
+                                <p class="wm-bmi__value">BMI 27+</p>
+                                <p>May be considered where relevant weight-related health conditions apply.</p>
+                            </div>
+                        </div>
                         <p>Not sure whether you are eligible? Our pre-screening form helps the pharmacy team review whether a face-to-face weight management consultation is likely to be suitable before you attend. Book a consultation and we will assess you properly. There is no obligation to proceed with any treatment.</p>
                         <p style="text-align: center; margin-top: 1.5rem;">
                             <a href="https://www.nhs.uk/health-assessment-tools/calculate-your-body-mass-index/calculate-bmi-for-adults/confirm-consent" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">BMI Calculator</a>
@@ -271,67 +700,96 @@
                             <p>We do not follow a 'one-size-fits-all' approach. Our duty of care is to your long-term health, not just weight loss. If a medication is not the safest or most effective path for your unique health profile, our pharmacist will recommend evidence-based, lifestyle-led alternatives and prioritise your ongoing wellbeing over treatment supply.</p>
                         </div>
                     </div>
-                </div>
+            </div>
+        </section>
 
-                <!-- Treatment Options -->
-                <div class="wm-section wm-section--alt">
-                    <h2 class="wm-section__title">Treatment Options That May Be Discussed</h2>
-                    <p class="wm-section__intro">Some patients come to PeakHealth already wanting to discuss particular weight management options. During your pharmacist-led consultation, we can review your health information, goals and suitability before discussing which options may be appropriate.</p>
-                    <div class="conditions-grid">
-                        <div class="condition-card treatment-card">
-                            <div class="condition-card__icon"><i class="fas fa-person-walking"></i></div>
-                            <h3>Lifestyle and behaviour support</h3>
-                            <p class="treatment-card__label">What it may involve</p>
-                            <p>Support around realistic goals, food choices, activity, healthy habits, accountability and long-term wellbeing.</p>
-                            <p class="treatment-card__label">What to know</p>
-                            <p>Recommended as part of every sustainable weight management journey.</p>
+        <!-- Treatment Options at a Glance -->
+        <section class="wm-section wm-band wm-band--sage" id="treatment-options">
+            <div class="container">
+                    <h2 class="wm-section__title">Treatment Options at a Glance</h2>
+                    <p class="wm-section__intro">During your consultation, your pharmacist will review your health information, goals and suitability before discussing which options may be appropriate for you. All prescription treatments are available only following a full face-to-face pharmacist assessment.</p>
+                    <div class="wm-treat-grid">
+                        <div class="condition-card wm-treat-card wm-treat-card--lifestyle">
+                            <div class="wm-treat-card__meta">
+                                <span class="wm-treat-card__badge">Included support</span>
+                                <span class="wm-treat-card__price">Included</span>
+                            </div>
+                            <div class="condition-card__icon"><i class="fas fa-leaf"></i></div>
+                            <h3>Lifestyle &amp; Behaviour Support</h3>
+                            <p>The foundation of every sustainable weight management plan at PeakHealth. Face-to-face guidance is included with every consultation.</p>
+                            <ul>
+                                <li>Personalised goal-setting</li>
+                                <li>Dietary and activity guidance</li>
+                                <li>Accountability and ongoing support</li>
+                                <li>Recommended as part of every plan</li>
+                            </ul>
                         </div>
-                        <div class="condition-card treatment-card">
+                        <div class="condition-card wm-treat-card wm-treat-card--oral">
+                            <div class="wm-treat-card__meta">
+                                <span class="wm-treat-card__badge">Oral option</span>
+                                <span class="wm-treat-card__price">From £39</span>
+                            </div>
                             <div class="condition-card__icon"><i class="fas fa-pills"></i></div>
-                            <h3>Oral treatment options</h3>
-                            <p class="treatment-card__label">What it may involve</p>
-                            <p>For some patients, oral options such as <u>Orlistat</u> or <u>Wegovy</u> (semaglutide) tablets may be discussed where clinically appropriate.</p>
-                            <p class="treatment-card__label">What to know</p>
-                            <p>Suitability depends on assessment, medical history and safety checks. See newer oral medicines below.</p>
+                            <h3>Oral Treatment Options</h3>
+                            <p>Once-daily prescription tablets that may be discussed where clinically appropriate. No injections required.</p>
+                            <ul>
+                                <li>Orlistat</li>
+                                <li>Wegovy (semaglutide tablet) <span class="wm-pill">Available now</span></li>
+                                <li>Foundayo (orforglipron) <span class="wm-pill">Available now</span></li>
+                            </ul>
                         </div>
-                        <div class="condition-card treatment-card">
+                        <div class="condition-card wm-treat-card wm-treat-card--injectable">
+                            <div class="wm-treat-card__meta">
+                                <span class="wm-treat-card__badge">Weekly injection</span>
+                                <span class="wm-treat-card__price">From £139</span>
+                            </div>
                             <div class="condition-card__icon"><i class="fas fa-syringe"></i></div>
-                            <h3>Injectable prescription options</h3>
-                            <p class="treatment-card__label">What it may involve</p>
-                            <p>Some patients may ask about prescribed injectable treatments such as <u>Mounjaro</u> (Tirzepatide) or <u>Wegovy</u> (Semaglutide) during their consultation.</p>
-                            <p class="treatment-card__label">What to know</p>
-                            <p>Prescription-only, once-weekly injectable medicines used in weight management, available only following a full pharmacist assessment. These options are not suitable for everyone and are only considered after assessment of eligibility, health information and safety.</p>
-                        </div>
-                        <div class="condition-card treatment-card">
-                            <div class="condition-card__icon"><i class="fas fa-stethoscope"></i></div>
-                            <h3>Health Screening &amp; Monitoring</h3>
-                            <p class="treatment-card__label">What it may involve</p>
-                            <p>Patients may also choose to combine their journey with our relevant <u>Health screening</u> or monitoring services such as blood pressure, cholesterol, diabetes risk and more.</p>
-                            <p class="treatment-card__label">What to know</p>
-                            <p>Useful for focusing on overall health, not only changes on the scales.</p>
+                            <h3>Injectable Treatment Options</h3>
+                            <p>Once-weekly prescription injections that may be discussed depending on suitability, following pharmacist assessment.</p>
+                            <ul>
+                                <li>Mounjaro (tirzepatide)</li>
+                                <li>Wegovy (semaglutide injection)</li>
+                            </ul>
                         </div>
                     </div>
-                    <p class="wm-section__intro" style="margin-top: 2.5rem;">Newer oral medicines you may wish to ask about during your consultation:</p>
-                    <div class="conditions-grid">
-                        <div class="condition-card treatment-card">
-                            <div class="condition-card__icon"><i class="fas fa-pills"></i></div>
-                            <span style="display: inline-block; padding: 0.35rem 0.85rem; background-color: var(--color-primary, #4CAF50); color: #fff; border-radius: var(--border-radius, 6px); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.03em; margin-bottom: 0.5rem;">NEW</span>
-                            <h3>Wegovy (semaglutide) tablets</h3>
-                            <p>Wegovy (semaglutide) is now available in the UK as a once-daily tablet for weight management, providing another non-injectable option for suitable patients. This prescription-only treatment may be discussed following a face-to-face consultation and clinical assessment with our pharmacy team.</p>
-                        </div>
-                        <div class="condition-card treatment-card coming-soon">
-                            <div class="condition-card__icon"><i class="fas fa-pills"></i></div>
-                            <span class="coming-soon-label" style="margin-bottom: 0.5rem;"><i class="fas fa-clock"></i> COMING SOON</span>
-                            <h3>Foundayo (orforglipron)</h3>
-                            <p>Foundayo (orforglipron) is a new once-daily oral GLP-1 treatment authorised in the UK for weight management in eligible adults. We are planning to introduce Foundayo as another treatment option at PeakHealth Pharmacy soon, giving suitable patients greater choice between oral and injectable approaches.</p>
-                            <p><strong>Foundayo is not currently being supplied by PeakHealth Pharmacy. We will update this page when the treatment becomes available through our weight management service.</strong></p>
-                        </div>
+                    <p class="wm-treat-note">Prescription-only treatments are not supplied automatically. They are only considered following a face-to-face pharmacist consultation, eligibility checks and clinical assessment. Prices and availability may change and will be confirmed before any treatment is agreed.</p>
+                    <div class="wm-cta-block">
+                        <a href="https://peakhealthpharmacy.co.uk/book-consultation?service=weightloss-clinic" class="btn btn--primary btn--large">Book Your Weight Management Consultation</a>
                     </div>
-                    <p class="wm-treatment-note"><strong>Note:</strong> All prescription treatments are prescription-only medicines. They are not available without a prior face-to-face consultation and clinical assessment.</p>
-                </div>
+            </div>
+        </section>
 
-                <!-- Supporting Your Wider Health -->
-                <div class="wm-section">
+        <!-- Local Support comparison -->
+        <section class="wm-section wm-band wm-band--white">
+            <div class="container">
+                    <h2 class="wm-section__title">Local Support, Not Just an Online Form</h2>
+                    <p class="wm-section__intro">PeakHealth is not trying to replace patient interaction with online-only care. You sit down with a pharmacist, ask questions in person, and receive ongoing local support from the team who know you.</p>
+                    <div class="wm-compare">
+                        <article class="wm-compare__card">
+                            <h3>Typical online-only route</h3>
+                            <ul>
+                                <li><i class="fas fa-circle" aria-hidden="true"></i> Remote questionnaire</li>
+                                <li><i class="fas fa-circle" aria-hidden="true"></i> Digital check-ins</li>
+                                <li><i class="fas fa-circle" aria-hidden="true"></i> Ticket, chat or email support</li>
+                                <li><i class="fas fa-circle" aria-hidden="true"></i> Postal delivery</li>
+                            </ul>
+                        </article>
+                        <article class="wm-compare__card wm-compare__card--peak">
+                            <h3>PeakHealth face-to-face support</h3>
+                            <ul>
+                                <li><i class="fas fa-check" aria-hidden="true"></i> Face-to-face pharmacist consultation</li>
+                                <li><i class="fas fa-check" aria-hidden="true"></i> Support from Kez and Harvie</li>
+                                <li><i class="fas fa-check" aria-hidden="true"></i> Call us or speak to the team in person</li>
+                                <li><i class="fas fa-check" aria-hidden="true"></i> Local collection, with 24/7 collection where suitable</li>
+                            </ul>
+                        </article>
+                    </div>
+            </div>
+        </section>
+
+        <!-- Supporting Your Wider Health -->
+        <section class="wm-section wm-band wm-band--pale" id="wider-health">
+            <div class="container">
                     <h2 class="wm-section__title">Supporting Your Wider Health</h2>
                     <div class="wm-support-split">
                         <div class="wm-support-split__media">
@@ -345,19 +803,23 @@
                             </p>
                         </div>
                     </div>
-                </div>
+            </div>
+        </section>
 
-                <!-- Convenient Collection Options -->
-                <div class="wm-section wm-section--alt">
+        <!-- Convenient Collection Options -->
+        <section class="wm-section wm-band wm-band--mist" id="collection-options">
+            <div class="container">
                     <h2 class="wm-section__title">Convenient Collection Options</h2>
-                    <div style="max-width: 800px; margin: 0 auto;">
+                    <div class="wm-collection-panel">
                         <h3>Collect Your Treatment Any Time — Our 24-Hour Collection Point</h3>
                         <p>Where clinically appropriate, some non-refrigerated treatments, such as certain oral options, may be suitable for convenient collection through our 24/7 prescription collection point. Refrigerated treatments require appropriate collection and safe storage arrangements, which our pharmacy team will explain during your consultation.</p>
                     </div>
-                </div>
+            </div>
+        </section>
 
-                <!-- Patient Experiences -->
-                <div class="wm-section">
+        <!-- Patient Experiences -->
+        <section class="wm-section wm-band wm-band--dark" id="patient-stories">
+            <div class="container">
                     <h2 class="wm-section__title">What Our Weight Management Patients Say</h2>
                     <div class="testimonials-grid">
                         <div class="testimonial-card">
@@ -401,10 +863,12 @@
                             </div>
                         </div>
                     </div>
-                </div>
+            </div>
+        </section>
 
-                <!-- FAQ -->
-                <div class="wm-section wm-section--alt">
+        <!-- FAQ -->
+        <section class="wm-section wm-band wm-band--mist" id="faqs">
+            <div class="container">
                     <h2 class="wm-section__title">Frequently Asked Questions</h2>
                     <div class="faq-container">
                         <div class="faq-item">
@@ -418,47 +882,11 @@
                         </div>
                         <div class="faq-item">
                             <div class="faq-question">
-                                <h3>What happens after clicking "Book a Consultation"?</h3>
-                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
-                            </div>
-                            <div class="faq-answer">
-                                <p>Our booking system will display a list of services. Please select "Weight Management", then choose "Weight Loss – First Consultation" to begin the correct booking journey. You will then receive a pre-screening form to complete before you attend.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <h3>Why do I need to complete a pre-screening form?</h3>
-                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
-                            </div>
-                            <div class="faq-answer">
-                                <p>The form collects basic health information before your appointment. This helps our team review whether the service is likely to be appropriate, reduces the risk of an unnecessary visit and allows your face-to-face consultation to be more focused.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item">
-                            <div class="faq-question">
                                 <h3>Will I be seen face to face?</h3>
                                 <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                             </div>
                             <div class="faq-answer">
                                 <p>Yes. All weight management consultations take place in person at PeakHealth Pharmacy, 77 Lochend Road, Easterhouse, Glasgow G34 0JZ.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <h3>Who leads the service?</h3>
-                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
-                            </div>
-                            <div class="faq-answer">
-                                <p>The service is pharmacist-led, with support from Harvie, our prescribing pharmacist, where clinically appropriate and Kez our local pharmacist. Our aim is to provide safe, professional advice and ongoing local support.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <h3>Can I get help between appointments?</h3>
-                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
-                            </div>
-                            <div class="faq-answer">
-                                <p>Yes. If you have questions or concerns during your journey, you can contact or visit the pharmacy for advice rather than relying only on an online process.</p>
                             </div>
                         </div>
                         <div class="faq-item">
@@ -472,16 +900,7 @@
                         </div>
                         <div class="faq-item">
                             <div class="faq-question">
-                                <h3>Will PeakHealth Pharmacy offer Foundayo (orforglipron)?</h3>
-                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
-                            </div>
-                            <div class="faq-answer">
-                                <p>We are planning to introduce Foundayo (orforglipron) to our weight management service soon. Foundayo is a newly authorised once-daily oral GLP-1 treatment for weight management in eligible adults. We are not currently supplying Foundayo at PeakHealth, but we will update this page when it becomes available through our service. As with all prescription weight-management treatments, suitability will be assessed individually following consultation.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <h3>What is the difference between oral and injectable?</h3>
+                                <h3>What is the difference between oral and injectable options?</h3>
                                 <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                             </div>
                             <div class="faq-answer">
@@ -490,11 +909,11 @@
                         </div>
                         <div class="faq-item">
                             <div class="faq-question">
-                                <h3>Are treatments for everyone?</h3>
+                                <h3>Can I get help between appointments?</h3>
                                 <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                             </div>
                             <div class="faq-answer">
-                                <p>No. Suitability depends on factors including BMI, medical history, medicines, weight-related health conditions and pharmacist assessment. Treatment is not automatically supplied following an appointment.</p>
+                                <p>Yes. If you have questions or concerns during your journey, you can contact or visit the pharmacy for advice rather than relying only on an online process.</p>
                             </div>
                         </div>
                         <div class="faq-item">
@@ -508,11 +927,20 @@
                         </div>
                         <div class="faq-item">
                             <div class="faq-question">
-                                <h3>Can health screenings support my journey?</h3>
+                                <h3>How much does the weight management service cost?</h3>
                                 <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                             </div>
                             <div class="faq-answer">
-                                <p>Definitely. Some patients choose to monitor wider health markers, such as blood pressure, cholesterol or diabetes risk, as part of a whole-health approach to weight management. Visit our <a href="https://peakhealthpharmacy.co.uk/health-screenings">Health Screenings</a> and <a href="https://peakhealthpharmacy.co.uk/health-mot">Health MOT</a> service pages for more information.</p>
+                                <p>Pricing depends on the type of consultation, the treatment option recommended and your ongoing programme. Oral treatment options start from £39 and prescription injectable treatments start from £139 (Prices are subject to change and will always be confirmed before treatment is agreed). We will always explain costs fully and clearly before any treatment is agreed or supplied — there are no hidden charges such as consultation fees and no treatment is ever supplied without your informed consent. Call us on <a href="tel:01417732003">0141 773 2003</a> or book a consultation to find out more.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Am I suitable for weight management treatment?</h3>
+                                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>No. Suitability depends on factors including BMI, medical history, medicines, weight-related health conditions and pharmacist assessment. Treatment is not automatically supplied following an appointment.</p>
                             </div>
                         </div>
                         <div class="faq-item">
@@ -521,25 +949,28 @@
                                 <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                             </div>
                             <div class="faq-answer">
-                                <p>Online services typically assess you via a digital form. PeakHealth offers face-to-face support from a local community pharmacy in Easterhouse, Glasgow's East End. Patients can speak to real healthcare professionals, access confidential consultations, get help with side-effect management if suitable and receive ongoing support throughout their journey. Local collection of your treatment and continuity of care from people who know you. Many patients find that personal, local support is worth at least as much as the treatment itself.</p>
+                                <p>Online services typically assess you via a digital form. PeakHealth offers face-to-face support from a local community pharmacy in Easterhouse, Glasgow's East End. Patients can speak to real healthcare professionals, access confidential consultations, get help with side-effect management if suitable and receive ongoing support throughout their journey. Local collection of your treatment and continuity of care from people who know you. Many patients find that personal, local support is worth at least as much as the treatment itself. The service is led by Harvie, our GPhC-registered prescribing pharmacist, alongside Kez, our local community pharmacist — giving you access to experienced, professional care without needing a GP appointment.</p>
                             </div>
                         </div>
                         <div class="faq-item">
                             <div class="faq-question">
-                                <h3>How much does the weight management service cost?</h3>
+                                <h3>Can health screenings support my weight management journey?</h3>
                                 <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                             </div>
                             <div class="faq-answer">
-                                <p>Pricing depends on the type of consultation, the treatment option recommended and your ongoing programme. Oral treatment options start from £39 and prescription injectable treatments start from £139 (Prices are subject to change and will always be confirmed before treatment is agreed). We will always explain costs fully and clearly before any treatment is agreed or supplied — there are no hidden charges such as consultation fees and no treatment is ever supplied without your informed consent. Call us on <a href="tel:01417732003">0141 773 2003</a> or book a consultation to find out more.</p>
+                                <p>Yes. Some patients choose to monitor wider health markers — such as blood pressure, cholesterol or diabetes risk — as part of a whole-health approach alongside their weight management plan. Find out more on our <a href="health-screenings">Health Screenings</a> and <a href="health-mot">Health MOT</a> pages.</p>
                             </div>
                         </div>
                     </div>
                     <div class="wm-cta-block">
                         <a href="https://peakhealthpharmacy.co.uk/book-consultation?service=weightloss-clinic" class="btn btn--primary btn--large">Book Your Weight Management Consultation</a>
                     </div>
-                </div>
+            </div>
+        </section>
 
-                <div style="max-width: 900px; margin: 2rem auto 0;">
+        <section class="wm-section wm-band wm-band--white">
+            <div class="container">
+                <div style="max-width: 900px; margin: 0 auto;">
                     <div class="service-cta">
                         <a href="https://peakhealthpharmacy.co.uk/book-consultation?service=weightloss-clinic" class="btn btn--primary btn--large">Book Your Consultation</a>
                         <a href="services" class="btn btn--secondary">View All Services</a>
@@ -559,7 +990,7 @@
         </section>
 
         <!-- CTA Section -->
-        <section class="cta">
+        <section class="cta" id="book-now">
             <div class="container">
                 <div class="cta__content">
                     <h2 class="cta__title">Ready to Take the First Step?</h2>

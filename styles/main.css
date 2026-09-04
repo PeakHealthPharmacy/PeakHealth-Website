@@ -2816,6 +2816,26 @@ section {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
+.wm-page .condition-card ul {
+    margin: 0.75rem 0 1rem;
+    padding-left: 1.2rem;
+    list-style: disc;
+}
+
+.wm-page .condition-card li {
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+    line-height: 1.45;
+}
+
+.wm-page .condition-card p:not(:last-child) {
+    margin-bottom: 0.55rem;
+}
+
+.wm-page .conditions-grid + .text-muted {
+    margin-top: 2rem;
+}
+
 .wm-page .process-step__content {
     background: #fff;
     border-radius: var(--border-radius);
