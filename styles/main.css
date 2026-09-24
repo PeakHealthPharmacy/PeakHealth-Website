@@ -881,11 +881,23 @@ section {
 
 .nhs-logo-hero {
     position: absolute;
-    top: -20px;
-    left: -60px;
+    top: 1.25rem;
+    left: calc(50% - 50vw + 1.25rem);
     width: 110px;
     height: auto;
+    max-width: calc(100vw - 2.5rem);
     z-index: 5;
+}
+
+@media (max-width: 1200px) {
+    .nhs-logo-hero {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 90px;
+        margin: 2.5rem auto 1rem;
+        display: block;
+    }
 }
 
 .hero__content {
@@ -1725,7 +1737,7 @@ section {
         top: 0 !important;
         left: 0 !important;
         width: 80px !important;
-        margin: 0 auto 1rem !important;
+        margin: 1.25rem auto 1rem !important;
         display: block;
     }
     
