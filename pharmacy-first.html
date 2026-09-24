@@ -52,6 +52,85 @@
         "about": { "@id": "https://peakhealthpharmacy.co.uk/#pharmacy" }
     }
     </script>
+    <style>
+        .wm-onpage {
+            background: #fff;
+            padding: 1.1rem 0 1.25rem;
+            border-bottom: 1px solid rgba(56, 142, 60, 0.12);
+        }
+        .wm-onpage__title {
+            margin: 0 0 0.7rem;
+            padding: 0;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--color-primary-dark, #388E3C);
+            text-align: left;
+        }
+        .wm-onpage__list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem 0.5rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .wm-onpage__list a {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.38rem 0.85rem;
+            border-radius: 999px;
+            background: #f3faf4;
+            border: 1px solid rgba(56, 142, 60, 0.18);
+            color: var(--color-primary-dark, #388E3C);
+            font-size: 0.86rem;
+            font-weight: 600;
+            line-height: 1.3;
+            text-decoration: none;
+        }
+        .wm-onpage__list a:hover,
+        .wm-onpage__list a:focus-visible {
+            background: #e8f5e9;
+            color: #1b5e20;
+        }
+        .wm-onpage__list a:focus-visible {
+            outline: 2px solid var(--color-primary, #4CAF50);
+            outline-offset: 2px;
+        }
+        .wm-onpage__book {
+            background: var(--color-primary, #4CAF50);
+            border-color: var(--color-primary, #4CAF50);
+            color: #fff;
+        }
+        .wm-onpage__book:hover,
+        .wm-onpage__book:focus-visible {
+            background: var(--color-primary-dark, #388E3C);
+            border-color: var(--color-primary-dark, #388E3C);
+            color: #fff;
+        }
+        #conditions,
+        #how-it-works,
+        #plus,
+        #prescribers,
+        #faqs-pf,
+        #book-now-pf {
+            scroll-margin-top: 5.75rem;
+        }
+        @media (max-width: 768px) {
+            .wm-onpage { padding: 1rem 0 1.15rem; }
+            .wm-onpage__list a {
+                min-height: 44px;
+                padding: 0.55rem 0.95rem;
+            }
+            #conditions,
+            #how-it-works,
+            #plus,
+            #prescribers,
+            #faqs-pf,
+            #book-now-pf {
+                scroll-margin-top: 4.75rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -149,7 +228,19 @@
                     </div>
                 </div>
 
-                <div class="conditions-block">
+                <nav class="wm-onpage" aria-label="On this page">
+                    <h2 class="wm-onpage__title">On this page</h2>
+                    <ul class="wm-onpage__list">
+                        <li><a href="#conditions">Conditions We Treat</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#plus">Pharmacy First Plus</a></li>
+                        <li><a href="#prescribers">Meet Our Prescribers</a></li>
+                        <li><a href="#faqs-pf">FAQs</a></li>
+                        <li><a class="wm-onpage__book" href="#book-now-pf">Book Now</a></li>
+                    </ul>
+                </nav>
+
+                <div class="conditions-block" id="conditions">
                     <h2>Common Conditions We Treat</h2>
                     <div class="conditions-grid">
                         <div class="condition-card">
@@ -228,7 +319,7 @@
                     </div>
                 </div>
 
-                <div class="process-block">
+                <div class="process-block" id="how-it-works">
                     <h2>How does Pharmacy First work?</h2>
                     <div class="process-steps">
                         <div class="process-step">
@@ -270,7 +361,7 @@
                         <div class="intro-block">
                             <h3>What is Pharmacy First Plus?</h3>
                             <p>Book with one of our prescribing pharmacists for Pharmacy First Plus. Kez and Harvie now provide prescribing pharmacist support Monday to Friday, 10am–5pm, where clinically appropriate.</p>
-                            <p>Pharmacy First Plus is an enhanced NHS service. Following pharmacist assessment, a prescribing pharmacist may be able to provide consultations and issue prescriptions for a wider range of suitable conditions than standard Pharmacy First, where our prescribing pharmacist can safely help.</p>
+                            <p>You can book a Pharmacy First Plus consultation with Kez or Harvie without a GP referral. In that appointment, our prescribing pharmacist will assess your symptoms and, where clinically appropriate, provide advice or a prescription for a range of suitable conditions. If your concern needs your GP or another service, we will tell you and help with the next step.</p>
                             <p>Prescribing pharmacist availability is usually Monday to Friday, 10am–5pm, subject to pharmacist availability and clinical suitability.</p>
                             
                             <div class="availability">
@@ -284,7 +375,7 @@
                     <div class="column">
                         <div class="info-card plus-card">
                             <div class="info-card__content">
-                                <h3>Meet Our Prescribing Pharmacists</h3>
+                                <h3 id="prescribers">Meet Our Prescribing Pharmacists</h3>
                                 <div class="prescriber-photos">
                                     <figure class="prescriber-photos__item">
                                         <img src="images/Kez photo.jpg" alt="Kez, independent prescribing pharmacist at PeakHealth Pharmacy">
@@ -321,7 +412,7 @@
         </section>
 
         <!-- FAQ Section -->
-        <section class="faq">
+        <section class="faq" id="faqs-pf">
             <div class="container">
                 <h2 class="section-title">Frequently Asked Questions</h2>
                 <div class="faq-container">
@@ -349,7 +440,7 @@
                             <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                         </div>
                         <div class="faq-answer">
-                            <p>Pharmacy First covers common minor ailments and is available with any of our pharmacists. Pharmacy First Plus is an enhanced service with our prescribing pharmacists, Kez and Harvie, who can assess and, where clinically appropriate, prescribe for a wider range of suitable conditions following pharmacist assessment.</p>
+                            <p>Pharmacy First covers common minor ailments and is available with any of our pharmacists, usually without an appointment. Pharmacy First Plus is a booked consultation with Kez or Harvie, our prescribing pharmacists. No GP referral is needed. Following assessment, they may provide advice or a prescription for a wider range of suitable conditions, where they can safely help. Not every concern can be managed in the pharmacy, and we will refer you on when that is the right thing to do.</p>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -386,7 +477,7 @@
         </section>
 
         <!-- CTA Section -->
-        <section class="cta">
+        <section class="cta" id="book-now-pf">
             <div class="container">
                 <div class="cta__content">
                     <h2 class="cta__title">Ready to Use Pharmacy First?</h2>

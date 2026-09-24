@@ -571,11 +571,13 @@ function initStaticTestimonials() {
         // Show current testimonial
         testimonials[index].style.display = 'block';
         
-        // Update dots
+        // Update dots when this testimonial block has them
         dots.forEach(dot => {
             dot.classList.remove('active');
         });
-        dots[index].classList.add('active');
+        if (dots[index]) {
+            dots[index].classList.add('active');
+        }
         
         currentIndex = index;
     }

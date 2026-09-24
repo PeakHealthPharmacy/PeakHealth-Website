@@ -68,6 +68,85 @@
         "cost": "Private service - pricing available on consultation"
     }
     </script>
+    <style>
+        .wm-onpage {
+            background: #fff;
+            padding: 1.1rem 0 1.25rem;
+            border-bottom: 1px solid rgba(56, 142, 60, 0.12);
+        }
+        .wm-onpage__title {
+            margin: 0 0 0.7rem;
+            padding: 0;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--color-primary-dark, #388E3C);
+            text-align: left;
+        }
+        .wm-onpage__list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem 0.5rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .wm-onpage__list a {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.38rem 0.85rem;
+            border-radius: 999px;
+            background: #f3faf4;
+            border: 1px solid rgba(56, 142, 60, 0.18);
+            color: var(--color-primary-dark, #388E3C);
+            font-size: 0.86rem;
+            font-weight: 600;
+            line-height: 1.3;
+            text-decoration: none;
+        }
+        .wm-onpage__list a:hover,
+        .wm-onpage__list a:focus-visible {
+            background: #e8f5e9;
+            color: #1b5e20;
+        }
+        .wm-onpage__list a:focus-visible {
+            outline: 2px solid var(--color-primary, #4CAF50);
+            outline-offset: 2px;
+        }
+        .wm-onpage__book {
+            background: var(--color-primary, #4CAF50);
+            border-color: var(--color-primary, #4CAF50);
+            color: #fff;
+        }
+        .wm-onpage__book:hover,
+        .wm-onpage__book:focus-visible {
+            background: var(--color-primary-dark, #388E3C);
+            border-color: var(--color-primary-dark, #388E3C);
+            color: #fff;
+        }
+        #why-choose-mens,
+        #services-pricing,
+        #what-to-expect,
+        #area-mens,
+        #faqs-mens,
+        #book-now-mens {
+            scroll-margin-top: 5.75rem;
+        }
+        @media (max-width: 768px) {
+            .wm-onpage { padding: 1rem 0 1.15rem; }
+            .wm-onpage__list a {
+                min-height: 44px;
+                padding: 0.55rem 0.95rem;
+            }
+            #why-choose-mens,
+            #services-pricing,
+            #what-to-expect,
+            #area-mens,
+            #faqs-mens,
+            #book-now-mens {
+                scroll-margin-top: 4.75rem;
+            }
+        }
+    </style>
 </head>
 <body class="wm-page mens-page">
     <header class="header">
@@ -156,8 +235,20 @@
                     <p class="wm-section__intro">We know it can feel difficult to raise sensitive health concerns — even with a doctor. That's exactly why we created a private, comfortable space where you can speak openly, without embarrassment and without judgement. Unlike online-only services, you'll speak directly with a real pharmacist who gives you their full attention. Everything discussed in your appointment stays between you and your pharmacist.</p>
                 </div>
 
+                <nav class="wm-onpage" aria-label="On this page">
+                    <h2 class="wm-onpage__title">On this page</h2>
+                    <ul class="wm-onpage__list">
+                        <li><a href="#why-choose-mens">Why Choose Us</a></li>
+                        <li><a href="#services-pricing">Services &amp; Pricing</a></li>
+                        <li><a href="#what-to-expect">What to Expect</a></li>
+                        <li><a href="#area-mens">Serving Your Area</a></li>
+                        <li><a href="#faqs-mens">FAQs</a></li>
+                        <li><a class="wm-onpage__book" href="#book-now-mens">Book Now</a></li>
+                    </ul>
+                </nav>
+
                 <!-- Why Choose PeakHealth -->
-                <div class="wm-section wm-section--alt">
+                <div class="wm-section wm-section--alt" id="why-choose-mens">
                     <h2 class="wm-section__title">Why Choose PeakHealth for Men's Health?</h2>
                     <div class="conditions-grid">
                         <div class="condition-card">
@@ -194,7 +285,7 @@
                 </div>
 
                 <!-- Services & Pricing -->
-                <div class="wm-section">
+                <div class="wm-section" id="services-pricing">
                     <h2 class="wm-section__title">Services and Pricing</h2>
                     <p class="wm-section__intro">All prices are fully inclusive of your pharmacist consultation, assessment and treatment or test kit where applicable. There are no hidden fees or separate charges for our time and expertise.</p>
                     <div class="conditions-grid price-grid">
@@ -245,7 +336,7 @@
                 </div>
 
                 <!-- What to Expect -->
-                <div class="wm-section wm-section--alt">
+                <div class="wm-section wm-section--alt" id="what-to-expect">
                     <h2 class="wm-section__title">What to Expect</h2>
                     <div class="process-steps">
                         <div class="process-step">
@@ -280,7 +371,7 @@
                 </div>
 
                 <!-- Local Area -->
-                <div class="wm-section">
+                <div class="wm-section" id="area-mens">
                     <h2 class="wm-section__title">Serving Glasgow's East End</h2>
                     <div class="wm-support-split">
                         <div class="wm-support-split__media">
@@ -293,7 +384,7 @@
                 </div>
 
                 <!-- FAQ -->
-                <div class="wm-section wm-section--alt">
+                <div class="wm-section wm-section--alt" id="faqs-mens">
                     <h2 class="wm-section__title">Frequently Asked Questions</h2>
                     <div class="faq-container">
                         <div class="faq-item">
@@ -392,7 +483,7 @@
         </section>
 
         <!-- CTA Section -->
-        <section class="cta">
+        <section class="cta" id="book-now-mens">
             <div class="container">
                 <div class="cta__content">
                     <h2 class="cta__title">Ready to Take That First Step?</h2>
