@@ -3060,13 +3060,13 @@ section {
 }
 
 @media (max-width: 576px) {
-    .service-search__input {
-        font-size: 0.875rem;
-        padding: 0.72rem 0.9rem 0.72rem 2.5rem;
+    .service-search__input,
+    .service-search__input::placeholder {
+        font-size: 1rem;
     }
 
-    .service-search__input::placeholder {
-        font-size: 0.8rem;
+    .service-search__input {
+        padding: 0.72rem 0.9rem 0.72rem 2.5rem;
     }
 }
 
@@ -3112,11 +3112,18 @@ section {
 
 @media (max-width: 576px) {
     .sticky-cta {
-        bottom: 1rem;
-        right: 1rem;
-        left: 1rem;
+        bottom: 0.75rem;
+        right: 0.75rem;
+        left: auto;
+        max-width: calc(100% - 1.5rem);
         justify-content: center;
-        padding: 0.9rem 1rem;
+        padding: 0.7rem 0.95rem;
+        font-size: 0.9rem;
+        min-height: 44px;
+    }
+
+    body:has(.sticky-cta) {
+        padding-bottom: 4.5rem;
     }
 }
 
@@ -3442,4 +3449,70 @@ section {
     margin-top: 0.5rem;
     font-weight: 600;
     color: var(--color-primary-dark);
+}
+
+/* Mobile layout: keep the hero photo recognisable and taps comfortable.
+   Does not change the homepage NHS logo position. */
+@media (max-width: 768px) {
+    .hero .slideshow-slide {
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    section {
+        padding: 2.25rem 0 2.75rem;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .menu-toggle {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .service-search__label {
+        font-size: 0.9375rem;
+    }
+
+    .service-search__results {
+        z-index: 950;
+        max-height: min(50vh, 16rem);
+        overflow-y: auto;
+    }
+
+    .service-search__result-link {
+        min-height: 44px;
+        font-size: 1rem;
+    }
+
+    .btn {
+        min-height: 44px;
+    }
+
+    .footer__list li {
+        margin-bottom: 0;
+    }
+
+    .footer__list a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+    }
+
+    .footer__bottom,
+    .footer__bottom p {
+        overflow-wrap: anywhere;
+    }
+
+    .contact-method__details a,
+    .contact-info a[href^="tel:"],
+    .contact-info a[href^="mailto:"] {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+    }
 }
