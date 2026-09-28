@@ -666,7 +666,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Define galleries - each gallery is an array of image objects
     const galleries = {
         'ps24-gallery': [
-            { src: 'images/24 hour collection leaflet.png', alt: '24 Hour Prescription Collection Point' },
+            { src: 'images/24 hour collection leaflet.jpg', alt: '24 Hour Prescription Collection Point' },
             { src: 'images/ps24 image.jpg', alt: 'PS24 Prescription Collection Machine' },
             { src: 'images/ps24 image 2.jpg', alt: 'PS24 Prescription Collection Machine' }
         ]
