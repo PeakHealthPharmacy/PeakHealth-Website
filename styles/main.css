@@ -1300,6 +1300,13 @@ section {
     font-size: 1.1rem;
 }
 
+.cta__actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
 /* Footer */
 .footer {
     background-color: #333;
@@ -1758,7 +1765,8 @@ section {
         font-size: 1.1rem;
     }
     
-    .hero__cta {
+    .hero__cta,
+    .cta__actions {
         flex-direction: column;
     }
     
