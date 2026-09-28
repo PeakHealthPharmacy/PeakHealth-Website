@@ -12,7 +12,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pharmacy News Easterhouse Glasgow | PeakHealth Pharmacy</title>
+    <title>News, Health Guides &amp; Community Updates | PeakHealth Pharmacy</title>
     <meta name="description" content="Stay updated with the latest news from PeakHealth Pharmacy. Read about our community work, charity initiatives, service updates, and see photos from our activities in Easterhouse, Glasgow.">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,6 +38,72 @@
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://peakhealthpharmacy.co.uk/news-updates">
+    <style>
+        .wm-onpage {
+            background: #fff;
+            padding: 1.1rem 0 1.25rem;
+            border-bottom: 1px solid rgba(56, 142, 60, 0.12);
+        }
+        .wm-onpage__title {
+            margin: 0 0 0.7rem;
+            padding: 0;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--color-primary-dark, #388E3C);
+            text-align: left;
+        }
+        .wm-onpage__list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem 0.5rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .wm-onpage__list a {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.38rem 0.85rem;
+            border-radius: 999px;
+            background: #f3faf4;
+            border: 1px solid rgba(56, 142, 60, 0.18);
+            color: var(--color-primary-dark, #388E3C);
+            font-size: 0.86rem;
+            font-weight: 600;
+            line-height: 1.3;
+            text-decoration: none;
+        }
+        .wm-onpage__list a:hover,
+        .wm-onpage__list a:focus-visible {
+            background: #e8f5e9;
+            color: #1b5e20;
+        }
+        .wm-onpage__list a:focus-visible {
+            outline: 2px solid var(--color-primary, #4CAF50);
+            outline-offset: 2px;
+        }
+        #latest-updates,
+        #health-guides,
+        #community,
+        #nhs-services,
+        #featured-services {
+            scroll-margin-top: 8.25rem;
+        }
+        @media (max-width: 768px) {
+            .wm-onpage { padding: 1rem 0 1.15rem; }
+            .wm-onpage__list a {
+                min-height: 44px;
+                padding: 0.55rem 0.95rem;
+            }
+            #latest-updates,
+            #health-guides,
+            #community,
+            #nhs-services,
+            #featured-services {
+                scroll-margin-top: 6.5rem;
+            }
+        }
+    </style>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -49,7 +115,7 @@
     }
     </script>
 </head>
-<body>
+<body class="news-page">
     <header class="header">
         <div class="container">
             <div class="header__inner">
@@ -87,7 +153,7 @@
                             </ul>
                         </li>
                         <li class="nav__item"><a href="pharmacy-first" class="nav__link pharmacy-first-link"><span>Pharmacy</span><span>First</span></a></li>
-                        <li class="nav__item"><a href="news-updates" class="nav__link nav__link--active">News & Updates</a></li>
+                        <li class="nav__item"><a href="news-updates" class="nav__link nav__link--active">News & Health Guides</a></li>
                         <li class="nav__item"><a href="about" class="nav__link">About Us</a></li>
                         <li class="nav__item"><a href="contact" class="nav__link">Contact</a></li>
                     </ul>
@@ -112,18 +178,33 @@
                         <li class="breadcrumb__item"><span aria-current="page">News and updates</span></li>
                     </ol>
                 </nav>
-                <h1 class="page-header__title">News &amp; updates <span class="page-header__kicker">Easterhouse, Glasgow</span></h1>
-                <p class="page-header__subtitle">Stay connected with PeakHealth Pharmacy - your community health hub</p>
+                <h1 class="page-header__title">News, Health Guides &amp; Community Updates</h1>
+                <div class="news-intro">
+                    <p>Here you will find PeakHealth Pharmacy updates and service news, helpful health information, and our community and charity work. These updates are for patients and neighbours in Easterhouse, Glasgow&rsquo;s East End and the surrounding areas. For advice about your own health, please speak to our team at the pharmacy on Lochend Road.</p>
+                </div>
             </div>
         </section>
+
+        <nav class="wm-onpage" aria-label="On this page">
+            <div class="container">
+                <h2 class="wm-onpage__title">On this page</h2>
+                <ul class="wm-onpage__list">
+                    <li><a href="#latest-updates">Latest Service &amp; Pharmacy Updates</a></li>
+                    <li><a href="#health-guides">Health Guides &amp; Advice</a></li>
+                    <li><a href="#community">Community &amp; Charity Work</a></li>
+                    <li><a href="#nhs-services">Pharmacy First &amp; NHS Services</a></li>
+                    <li><a href="#featured-services">Featured Services</a></li>
+                </ul>
+            </div>
+        </nav>
 
         <!-- News Content -->
         <section class="news-content">
             <div class="container">
-                <!-- Latest Updates -->
+                <!-- Latest Service & Pharmacy Updates -->
                 <div class="news-section">
-                    <h2 class="section-title">Latest Updates</h2>
-                    <div class="news-grid">
+                    <h2 class="section-title" id="latest-updates">Latest Service &amp; Pharmacy Updates</h2>
+                    <div class="news-grid news-grid--fit">
                         <article class="news-card">
                             <div class="news-card__image">
                                 <img src="images/Weightloss image panel.avif" alt="Oral weight management treatment options at PeakHealth Pharmacy, Easterhouse" class="news-img" loading="lazy" decoding="async">
@@ -140,30 +221,7 @@
                             </div>
                         </article>
 
-                        <article class="news-card">
-                            <div class="news-card__image">
-                                <img src="images/FARE Charity raffle 2026.jpg" alt="FARE Scotland charity raffle poster 2026" class="news-img" loading="lazy" decoding="async">
-                            </div>
-                            <div class="news-card__content">
-                                <div class="news-card__date">29 May 2026</div>
-                                <h3 class="news-card__title">Donating to FARE Scotland's Charity Raffle</h3>
-                                <p class="news-card__excerpt">We donated perfumes and gift sets to FARE Scotland's raffle on 29th May to help raise funds for their community allotment. We love donating to local causes and are very proud to support the brilliant work FARE does to strengthen and uplift communities across the East End and beyond. Buy your raffle tickets now and lets support the FARE in the great work they do!</p>
-                                <a href="https://www.fare-scotland.org/" target="_blank" rel="noopener noreferrer" class="news-card__link">Learn More About FARE Scotland</a>
-                            </div>
-                        </article>
-
-                        <article class="news-card">
-                            <div class="news-card__image">
-                                <img src="images/Easterhouse FA logo.jpg" alt="PeakHealth Races sponsored by PeakHealth Pharmacy" class="news-img" loading="lazy" decoding="async">
-                            </div>
-                            <div class="news-card__content">
-                                <div class="news-card__date">28 February 2026</div>
-                                <h3 class="news-card__title">Proud Sponsors of Easterhouse FA's "PeakHealth Races"</h3>
-                                <p class="news-card__excerpt">We were proud to sponsor Easterhouse FA's Race Night, named the <strong>PeakHealth Races</strong>, to help raise funds for the football club. Supporting local organisations like Easterhouse FA means a lot to us, and we are always delighted to back the incredible work coaches, volunteers, and players do for our community.</p>
-                            </div>
-                        </article>
-
-                        <article class="news-card">
+                        <article class="news-card" id="24-hour-collection-point">
                             <div class="news-card__image">
                                 <img src="images/24 hour collection leaflet.jpg" alt="24 Hour Prescription Collection Point" class="news-img" data-gallery="ps24-gallery" data-gallery-index="0" loading="lazy" decoding="async">
                             </div>
@@ -172,18 +230,6 @@
                                 <h3 class="news-card__title">New 24 Hour Prescription Collection Point</h3>
                                 <p class="news-card__excerpt">We're proud to announce that we are the first pharmacy partnership in Scotland with PillPac Plus to provide the PS24 prescription collection machine. We're excited to invest in new technology and healthcare developments that benefit our patients and local community. This innovative 24-hour prescription collection point allows patients to collect their prescriptions 24 hours a day, 365 days a year, improving access to care for all members of our community. This reflects our core value of enhancing healthcare provision in the East End of Glasgow.</p>
                                 <a href="https://www.facebook.com/share/p/1BpcJYuf9F/" target="_blank" rel="noopener noreferrer" class="news-card__link">Read More About Our Partnership with PillPac Plus</a>
-                            </div>
-                        </article>
-
-                        <article class="news-card" id="24-hour-collection-point">
-                            <div class="news-card__image">
-                                <img src="images/Winter cold tips.webp" alt="NHS Flu Vaccines" class="news-img" loading="lazy" decoding="async">
-                            </div>
-                            <div class="news-card__content">
-                                <div class="news-card__date">November 2025</div>
-                                <h3 class="news-card__title">NHS Flu Vaccines</h3>
-                                <p class="news-card__excerpt">Getting the flu vaccination is important to stay well this winter. Patients can get this in our pharmacy now! Protect yourself and your loved ones by booking your flu vaccination with us. Our pharmacy team is here to help you stay healthy during the winter months.</p>
-                                <a href="book-consultation" class="news-card__link">Book Your Flu Vaccination</a>
                             </div>
                         </article>
 
@@ -196,17 +242,6 @@
                                 <h3 class="news-card__title">New Services Coming Soon!</h3>
                                 <p class="news-card__excerpt">We want to be the first port of call and main health hub in the East end of Glasgow! We will continue to expand our range of services to improve the level of care we can provide to our community. <a href="services#private-services" class="news-card__link">View Coming Soon Services</a></p>
                                 <p class="news-card__excerpt" style="margin-top: 0.5rem;">Feel free to <a href="contact#contact-form" class="news-card__link">send us a message</a> about any service you would like PeakHealth to start providing - we love feedback and endeavour to listen to our patients and meet their healthcare needs.</p>
-                            </div>
-                        </article>
-
-                        <article class="news-card">
-                            <div class="news-card__image">
-                                <img src="images/Free Health Check image.jpg" alt="Free Heart Health Check" class="news-img" loading="lazy" decoding="async">
-                            </div>
-                            <div class="news-card__content">
-                                <div class="news-card__date">October 2025</div>
-                                <h3 class="news-card__title">Free Heart Health Check at Stepford Pitches</h3>
-                                <p class="news-card__excerpt">We recently held a free heart health check up at the Stepford pitches for all the players, hardworking coaches and staff as well as members of the public. We try our best to improve health outcomes in our community and simple early check ups such as this can be life-changing.</p>
                             </div>
                         </article>
 
@@ -233,24 +268,12 @@
                                 <a href="about" class="news-card__link">Meet Our Team</a>
                             </div>
                         </article>
-
-                        <article class="news-card">
-                            <div class="news-card__image">
-                                <img src="images/Consultation image for Pharmacy first plus panel.webp" alt="Pharmacy First Plus" class="news-img" loading="lazy" decoding="async">
-                            </div>
-                            <div class="news-card__content">
-                                <div class="news-card__date">October 2023</div>
-                                <h3 class="news-card__title">Pharmacy First Plus Service Enhanced</h3>
-                                <p class="news-card__excerpt">Our Pharmacy First Plus service continues to grow, with Harvie now offering extended consultation hours and additional treatment options for our patients.</p>
-                                <a href="pharmacy-first" class="news-card__link">View Services</a>
-                            </div>
-                        </article>
                     </div>
                 </div>
 
                 <!-- Community & Charity Work -->
                 <div class="news-section">
-                    <h2 class="section-title">Community & Charity Work</h2>
+                    <h2 class="section-title" id="community">Community & Charity Work</h2>
                     <div class="news-grid">
                         <article class="news-card">
                             <div class="news-card__image">
@@ -271,6 +294,16 @@
                                 <div class="news-card__date">28 February 2026</div>
                                 <h3 class="news-card__title">Proud Sponsors of Easterhouse FA's "PeakHealth Races"</h3>
                                 <p class="news-card__excerpt">We were proud to sponsor Easterhouse FA's Race Night, named the <strong>PeakHealth Races</strong>, to help raise funds for the football club. Supporting local organisations like Easterhouse FA means a lot to us, and we are always delighted to back the incredible work coaches, volunteers, and players do for our community.</p>
+                            </div>
+                        </article>
+                        <article class="news-card">
+                            <div class="news-card__image">
+                                <img src="images/Free Health Check image.jpg" alt="Free Heart Health Check" class="news-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="news-card__content">
+                                <div class="news-card__date">October 2025</div>
+                                <h3 class="news-card__title">Free Heart Health Check at Stepford Pitches</h3>
+                                <p class="news-card__excerpt">We recently held a free heart health check up at the Stepford pitches for all the players, hardworking coaches and staff as well as members of the public. We try our best to improve health outcomes in our community and simple early check ups such as this can be life-changing.</p>
                             </div>
                         </article>
                         <article class="news-card">
@@ -348,21 +381,11 @@
                     </div>
                 </div>
 
-                <!-- Healthy Living -->
+                <!-- Health Guides & Advice -->
                 <div class="news-section">
-                    <h2 class="section-title">Healthy Living</h2>
+                    <h2 class="section-title" id="health-guides">Health Guides &amp; Advice</h2>
+                    <p class="news-section__note">More health guides and advice will be added here soon. In the meantime, speak to our team or visit our <a href="services">services pages</a> for information on specific conditions.</p>
                     <div class="news-grid">
-                        <article class="news-card">
-                            <div class="news-card__image">
-                                <img src="images/Winter cold tips.webp" alt="NHS Flu Vaccines" class="news-img" loading="lazy" decoding="async">
-                            </div>
-                            <div class="news-card__content">
-                                <div class="news-card__date">November 2025</div>
-                                <h3 class="news-card__title">NHS Flu Vaccines</h3>
-                                <p class="news-card__excerpt">Getting the flu vaccination is important to stay well this winter. Patients can get this in our pharmacy now! Protect yourself and your loved ones by booking your flu vaccination with us. Our pharmacy team is here to help you stay healthy during the winter months.</p>
-                                <a href="book-consultation" class="news-card__link">Book Your Flu Vaccination</a>
-                            </div>
-                        </article>
                         <article class="news-card">
                             <div class="news-card__image">
                                 <img src="images/Cold anf flu image.jpg" alt="Cold & Flu Management" class="news-img" loading="lazy" decoding="async">
@@ -389,6 +412,77 @@
                         </article>
                     </div>
                 </div>
+
+                <!-- Pharmacy First & NHS Services -->
+                <div class="news-section">
+                    <h2 class="section-title" id="nhs-services">Pharmacy First &amp; NHS Services</h2>
+                    <div class="news-grid">
+                        <article class="news-card">
+                            <div class="news-card__image">
+                                <img src="images/Winter cold tips.webp" alt="NHS Flu Vaccines" class="news-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="news-card__content">
+                                <div class="news-card__date">November 2025</div>
+                                <h3 class="news-card__title">NHS Flu Vaccines</h3>
+                                <p class="news-card__excerpt">Getting the flu vaccination is important to stay well this winter. Patients can get this in our pharmacy now! Protect yourself and your loved ones by booking your flu vaccination with us. Our pharmacy team is here to help you stay healthy during the winter months.</p>
+                                <a href="book-consultation" class="news-card__link">Book Your Flu Vaccination</a>
+                            </div>
+                        </article>
+                        <article class="news-card">
+                            <div class="news-card__image">
+                                <img src="images/Consultation image for Pharmacy first plus panel.webp" alt="Pharmacy First Plus" class="news-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="news-card__content">
+                                <div class="news-card__date">October 2023</div>
+                                <h3 class="news-card__title">Pharmacy First Plus Service Enhanced</h3>
+                                <p class="news-card__excerpt">Our Pharmacy First Plus service continues to grow, with Kez and Harvie, our prescribing pharmacists, now offering extended consultation hours and additional treatment options for our patients.</p>
+                                <a href="pharmacy-first" class="news-card__link">View Services</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Featured Services -->
+                <div class="news-section news-section--featured">
+                    <h2 class="section-title" id="featured-services">Featured Services</h2>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <div class="service-card__icon"><i class="fas fa-heartbeat" aria-hidden="true"></i></div>
+                            <h3 class="service-card__title">Pharmacy First</h3>
+                            <a href="pharmacy-first" class="service-card__link">Pharmacy First</a>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-card__icon"><i class="fas fa-weight-scale" aria-hidden="true"></i></div>
+                            <h3 class="service-card__title">Weight Management</h3>
+                            <a href="weight-management" class="service-card__link">View clinic</a>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-card__icon"><i class="fas fa-mars" aria-hidden="true"></i></div>
+                            <h3 class="service-card__title">Men's Health</h3>
+                            <a href="mens-health" class="service-card__link">Men's Health</a>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-card__icon"><i class="fas fa-venus" aria-hidden="true"></i></div>
+                            <h3 class="service-card__title">Women's Health</h3>
+                            <a href="womens-health" class="service-card__link">Women's Health</a>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-card__icon"><i class="fas fa-notes-medical" aria-hidden="true"></i></div>
+                            <h3 class="service-card__title">Health Screenings</h3>
+                            <a href="health-screenings" class="service-card__link">Health Screenings</a>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-card__icon"><i class="fas fa-plus-square" aria-hidden="true"></i></div>
+                            <h3 class="service-card__title">Services</h3>
+                            <a href="services" class="service-card__link">All services</a>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-card__icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
+                            <h3 class="service-card__title">Contact</h3>
+                            <a href="contact" class="service-card__link">Contact us</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -400,6 +494,7 @@
                     <p class="cta__text">Follow us on social media for the latest updates and community news.</p>
                     <div class="social-links">
                         <a href="https://www.facebook.com/profile.php?id=100095199086008" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Follow on Facebook</a>
+                        <a href="https://www.instagram.com/peakhealthpharmacy/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Follow on Instagram</a>
                         <a href="contact" class="btn btn--secondary">Contact Us</a>
                     </div>
                 </div>

@@ -289,6 +289,33 @@ section {
     width: 100%;
 }
 
+/* Laptop widths: keep "News & Health Guides" on one line beside the booking button */
+@media (min-width: 993px) and (max-width: 1520px) {
+    .header__inner {
+        padding-left: 190px;
+    }
+
+    .nav {
+        margin-left: 0;
+    }
+
+    .nav__item {
+        margin-left: 0.4rem;
+    }
+
+    .nav__link {
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+        font-size: 0.92rem;
+    }
+
+    .header__cta {
+        margin-left: 0.45rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
 /* Dropdown Menu Styles */
 .nav__item--dropdown {
     position: relative;
@@ -467,6 +494,10 @@ section {
     margin-top: 2rem;
 }
 
+.news-grid--fit {
+    align-items: start;
+}
+
 .news-card {
     background-color: var(--color-background);
     border-radius: var(--border-radius);
@@ -535,6 +566,101 @@ section {
 
 .news-card__link:hover {
     color: var(--color-primary-dark);
+}
+
+.news-section__note {
+    max-width: 760px;
+    margin-top: 1rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+.news-section__note a {
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.news-section--featured {
+    margin-bottom: 0;
+}
+
+/* News page — modest green hero, matching the services page band */
+.news-page .page-header {
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    padding-bottom: 4rem;
+    background:
+        radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.16), transparent 42%),
+        radial-gradient(circle at 88% 8%, rgba(255, 255, 255, 0.12), transparent 45%),
+        linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+}
+
+.news-page .page-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1.5px);
+    background-size: 24px 24px;
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+.news-page .page-header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 80px;
+    z-index: 0;
+    background: linear-gradient(to bottom, transparent, var(--color-background));
+    pointer-events: none;
+}
+
+.news-page .page-header .container {
+    position: relative;
+    z-index: 1;
+}
+
+.news-page .page-header__title {
+    color: #fff;
+    margin-bottom: 1.25rem;
+}
+
+.news-page .page-header__title:after {
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+.news-page .page-header .breadcrumb,
+.news-page .page-header .breadcrumb a,
+.news-page .page-header .breadcrumb__item span {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.news-page .page-header .breadcrumb__list {
+    justify-content: center;
+}
+
+.news-page .page-header .breadcrumb a:hover {
+    color: #fff;
+}
+
+.news-page .page-header .breadcrumb__item + .breadcrumb__item::before {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.news-page .news-intro {
+    max-width: 760px;
+    margin: 0.75rem auto 0;
+    text-align: center;
+}
+
+.news-page .news-intro p {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.05rem;
+    line-height: 1.6;
 }
 
 /* Image Lightbox Modal */
