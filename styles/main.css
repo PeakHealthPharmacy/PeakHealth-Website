@@ -3642,3 +3642,281 @@ section {
         min-height: 44px;
     }
 }
+
+/* At-a-glance strip and on-page links.
+   Same rules as the page styles on weight-management and men's health,
+   so other service pages can use the classes without inline styles.
+   Those pages keep their own later <style> blocks, which win if values differ. */
+.wm-glance {
+    background: #e8f5e9;
+    padding: 1.35rem 0;
+    border-top: 1px solid rgba(56, 142, 60, 0.12);
+    border-bottom: 1px solid rgba(56, 142, 60, 0.12);
+}
+
+.wm-glance__list {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.wm-glance__item {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    flex: 0 1 auto;
+    min-width: 0;
+}
+
+.wm-glance__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--color-primary-dark, #388E3C);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    font-size: 0.95rem;
+}
+
+.wm-glance__text {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-primary-dark, #388E3C);
+    line-height: 1.25;
+    white-space: nowrap;
+}
+
+.wm-onpage {
+    background: #fff;
+    padding: 1.1rem 0 1.25rem;
+    border-bottom: 1px solid rgba(56, 142, 60, 0.12);
+}
+
+.wm-onpage__title {
+    margin: 0 0 0.7rem;
+    padding: 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-primary-dark, #388E3C);
+    text-align: left;
+}
+
+.wm-onpage__title:after {
+    content: none;
+}
+
+.wm-onpage__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.wm-onpage__list a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.38rem 0.85rem;
+    border-radius: 999px;
+    background: #f3faf4;
+    border: 1px solid rgba(56, 142, 60, 0.18);
+    color: var(--color-primary-dark, #388E3C);
+    font-size: 0.86rem;
+    font-weight: 600;
+    line-height: 1.3;
+    text-decoration: none;
+}
+
+.wm-onpage__list a:hover,
+.wm-onpage__list a:focus-visible {
+    background: #e8f5e9;
+    color: #1b5e20;
+}
+
+.wm-onpage__list a:focus-visible {
+    outline: 2px solid var(--color-primary, #4CAF50);
+    outline-offset: 2px;
+}
+
+.hs-page .wm-onpage__list a.wm-onpage__book {
+    background: var(--color-primary, #4CAF50);
+    border-color: var(--color-primary, #4CAF50);
+    color: #fff;
+}
+
+.hs-page .wm-onpage__list a.wm-onpage__book:hover,
+.hs-page .wm-onpage__list a.wm-onpage__book:focus-visible {
+    background: var(--color-primary-dark, #388E3C);
+    border-color: var(--color-primary-dark, #388E3C);
+    color: #fff;
+}
+
+.wm-treat-card__badge {
+    display: inline-block;
+    padding: 0.28rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+    background: #e8f5e9;
+    color: var(--color-primary-dark, #388E3C);
+}
+
+.hs-page .service-detail-page {
+    padding-bottom: 2.25rem;
+}
+
+.hs-page .wm-glance__list {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.85rem 1rem;
+    justify-content: stretch;
+}
+
+.hs-page .wm-glance__item {
+    flex: 1 1 auto;
+}
+
+.hs-page .wm-glance__text {
+    white-space: normal;
+}
+
+.hs-page .service-detail__text .service-detail__intro {
+    margin-bottom: 0;
+}
+
+.hs-page .service-detail__content {
+    align-items: stretch;
+    flex-wrap: nowrap;
+}
+
+.hs-page .service-detail__image,
+.hs-page .service-detail__text {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.hs-page .service-detail-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.hs-page .hs-intro-follow {
+    margin-top: 1.75rem;
+}
+
+.hs-page .hs-intro-follow p:last-child {
+    margin-bottom: 0;
+}
+
+.hs-page #screenings .condition-card {
+    background: #fff;
+    border: 1px solid rgba(56, 142, 60, 0.16);
+    border-top: 4px solid var(--color-primary, #4CAF50);
+    box-shadow: 0 6px 16px rgba(27, 94, 32, 0.06);
+}
+
+.hs-page #screenings .hs-test-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0.2rem 0 0.85rem;
+}
+
+.hs-page #screenings .hs-test-head .condition-card__icon {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 0;
+    font-size: 1rem;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, var(--color-primary, #4CAF50), var(--color-primary-dark, #388E3C));
+    color: #fff;
+}
+
+.hs-page #screenings .hs-test-head h3 {
+    margin-bottom: 0;
+}
+
+.hs-page .wm-treat-card__badge--home {
+    background: var(--color-primary-dark, #388E3C);
+    color: #fff;
+}
+
+.hs-page .condition-card > .wm-treat-card__badge {
+    margin-bottom: 0.85rem;
+}
+
+.hs-page section[id] {
+    scroll-margin-top: 5.75rem;
+}
+
+@media (max-width: 1100px) {
+    .wm-glance__list {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .wm-glance {
+        padding: 1.1rem 0;
+    }
+
+    .wm-glance__list {
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: stretch;
+        gap: 0.7rem;
+    }
+
+    .wm-glance__item {
+        width: 100%;
+    }
+
+    .wm-onpage {
+        padding: 1rem 0 1.15rem;
+    }
+
+    .wm-onpage__list a {
+        min-height: 44px;
+        padding: 0.55rem 0.95rem;
+    }
+
+    .hs-page .wm-glance__list {
+        grid-template-columns: 1fr;
+    }
+
+    .hs-page .wm-glance__text {
+        white-space: normal;
+    }
+
+    .hs-page .service-detail__content {
+        flex-wrap: wrap;
+    }
+
+    .hs-page .service-detail__image,
+    .hs-page .service-detail__text {
+        flex: 1 1 100%;
+    }
+
+    .hs-page .service-detail-img {
+        height: 240px;
+    }
+
+    .hs-page section[id] {
+        scroll-margin-top: 4.75rem;
+    }
+}
