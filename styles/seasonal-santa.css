@@ -1,0 +1,49 @@
+/* Seasonal Santa hat on the header logo cross.
+   Enable by adding class "seasonal-santa" to <html>.
+   Decorative only; the original logo image file is not modified.
+
+   The header logo is drawn with object-fit: contain inside a 240×90px
+   (desktop) or 240×60px (mobile) box, so the visual artwork is letterboxed.
+   The percentages below are relative to that element box, not the artwork. */
+
+html.seasonal-santa .header {
+    overflow: visible;
+    /* A little extra room so the hat cone is not clipped by the viewport */
+    padding-top: 1.05rem;
+}
+
+html.seasonal-santa .logo__mark {
+    position: relative;
+    display: block;
+    line-height: 0;
+}
+
+html.seasonal-santa .logo__santa-hat {
+    position: absolute;
+    /* Desktop: vertical letterboxing (~12.4px). Cross centre x = 12.68% of the
+       artwork (full box width). Visual top of the cross is ~21.9% down the box. */
+    left: 12.68%;
+    top: 23.4%;
+    width: 13.6%;
+    height: auto;
+    transform-origin: 50% 87%;
+    transform: translate(-50%, -87%) rotate(-14deg);
+    pointer-events: none;
+    z-index: 2;
+    overflow: visible;
+    filter: drop-shadow(0 1px 1.5px rgba(40, 0, 0, 0.28));
+}
+
+@media (max-width: 992px) {
+    html.seasonal-santa .header {
+        padding-top: 0.85rem;
+    }
+
+    html.seasonal-santa .logo__santa-hat {
+        /* Mobile: horizontal letterboxing (~9.6px). Cross centre is ~15.67%
+           of the 240px box. No vertical letterbox; top of cross is 11.25%. */
+        left: 15.67%;
+        top: 16.8%;
+        width: 14.8%;
+    }
+}
