@@ -1,10 +1,22 @@
 /* Seasonal Santa hat on the header logo cross.
-   Enable by adding class "seasonal-santa" to <html>.
+   index.html adds class "seasonal-santa" to <html> only while
+   Date.now() is before 1 Jan 2027 00:00:00 UTC, which is
+   31 Dec 2026 23:59:59 Europe/London. After that these rules
+   do not apply. The two rules below keep the wrapper and SVG
+   from changing the header once the class is absent.
    Decorative only; the original logo image file is not modified.
 
    The header logo is drawn with object-fit: contain inside a 240×90px
    (desktop) or 240×60px (mobile) box, so the visual artwork is letterboxed.
    The percentages below are relative to that element box, not the artwork. */
+
+.logo__mark {
+    display: contents;
+}
+
+.logo__santa-hat {
+    display: none;
+}
 
 html.seasonal-santa .header {
     overflow: visible;
@@ -19,6 +31,7 @@ html.seasonal-santa .logo__mark {
 }
 
 html.seasonal-santa .logo__santa-hat {
+    display: block;
     position: absolute;
     /* Desktop: vertical letterboxing (~12.4px). Cross centre x = 12.68% of the
        artwork (full box width). Visual top of the cross is ~21.9% down the box. */
