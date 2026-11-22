@@ -16,6 +16,13 @@
     <title>Independent Pharmacy Easterhouse Glasgow | PeakHealth Pharmacy</title>
     <meta name="description" content="NHS community pharmacy on Lochend Road, Easterhouse, Glasgow (G34 0JZ). Pharmacy First, prescriptions, travel health, weight management, B12 and private consultations. Call 0141 773 2003.">
     <link rel="stylesheet" href="styles/main.css">
+    <script>
+        /* Through 31 Dec 2026, 23:59:59 Europe/London (GMT). Stays off from 1 Jan 2027. */
+        if (Date.now() < Date.UTC(2027, 0, 1, 0, 0, 0)) {
+            document.documentElement.classList.add('seasonal-santa');
+        }
+    </script>
+    <link rel="stylesheet" href="styles/seasonal-santa.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -136,7 +143,41 @@
                     </a>
                 </div>
                 <a href="/" class="logo">
-                    <img src="images/PH Logo Stacked.jpg" alt="PeakHealth Pharmacy Logo" class="logo__image" width="240" height="90" decoding="async" fetchpriority="high">
+                    <span class="logo__mark">
+                        <img src="images/PH Logo Stacked.jpg" alt="PeakHealth Pharmacy Logo" class="logo__image" width="240" height="90" decoding="async" fetchpriority="high">
+                        <svg class="logo__santa-hat" viewBox="0 0 80 70" aria-hidden="true" focusable="false" overflow="visible">
+                            <defs>
+                                <linearGradient id="santa-hat-red" x1="62" y1="8" x2="18" y2="58" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#E4454A"/>
+                                    <stop offset="48%" stop-color="#C81E32"/>
+                                    <stop offset="100%" stop-color="#9B1528"/>
+                                </linearGradient>
+                                <linearGradient id="santa-fur" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#FFFFFF"/>
+                                    <stop offset="55%" stop-color="#F3F0E8"/>
+                                    <stop offset="100%" stop-color="#DED6C8"/>
+                                </linearGradient>
+                                <radialGradient id="santa-pom" cx="0.36" cy="0.32" r="0.72">
+                                    <stop offset="0%" stop-color="#FFFFFF"/>
+                                    <stop offset="65%" stop-color="#F3F0E8"/>
+                                    <stop offset="100%" stop-color="#D8D0C2"/>
+                                </radialGradient>
+                            </defs>
+                            <!-- Floppy red cone, tip to the upper left (mirrored; pompom droops left) -->
+                            <path fill="url(#santa-hat-red)" d="M62 52
+                                C 60 40, 58 28, 48 18
+                                C 40 10, 26 6, 16 14
+                                C 10 18, 12 26, 20 30
+                                C 28 34, 22 42, 16 52
+                                Z"/>
+                            <!-- White fur brim -->
+                            <ellipse cx="40" cy="52.5" rx="24" ry="8.6" fill="url(#santa-fur)" stroke="#E6E0D4" stroke-width="0.6"/>
+                            <ellipse cx="40" cy="50.4" rx="18" ry="3.1" fill="#fff" opacity="0.55"/>
+                            <!-- Pompom -->
+                            <circle cx="16" cy="14" r="7.4" fill="url(#santa-pom)" stroke="#E6E0D4" stroke-width="0.5"/>
+                            <circle cx="13.8" cy="11.8" r="2.3" fill="#fff" opacity="0.8"/>
+                        </svg>
+                    </span>
                     <span class="logo__text">PeakHealth Pharmacy</span>
                 </a>
                 <nav class="nav">
