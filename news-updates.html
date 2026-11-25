@@ -86,8 +86,19 @@
         #health-guides,
         #community,
         #nhs-services,
-        #featured-services {
+        #featured-services,
+        #christmas-bonus-ball {
             scroll-margin-top: 8.25rem;
+        }
+        /* Portrait leaflet: keep the full poster, including the title, inside this card only. */
+        #christmas-bonus-ball .news-card__image {
+            height: auto;
+            aspect-ratio: 2 / 3;
+            max-height: 36rem;
+        }
+        #christmas-bonus-ball .news-img {
+            object-fit: contain;
+            object-position: center top;
         }
         @media (max-width: 768px) {
             .wm-onpage { padding: 1rem 0 1.15rem; }
@@ -99,7 +110,8 @@
             #health-guides,
             #community,
             #nhs-services,
-            #featured-services {
+            #featured-services,
+            #christmas-bonus-ball {
                 scroll-margin-top: 6.5rem;
             }
         }
@@ -205,6 +217,22 @@
                 <div class="news-section">
                     <h2 class="section-title" id="latest-updates">Latest Service &amp; Pharmacy Updates</h2>
                     <div class="news-grid news-grid--fit">
+                        <article class="news-card" id="christmas-bonus-ball">
+                            <div class="news-card__image">
+                                <img src="images/christmas-bonus-ball-2026.webp" alt="PeakHealth Pharmacy Christmas Fun and Charity leaflet for the Christmas Bonus Ball, with tickets at £2, 50% going to the winner and 50% to a charity chosen by patients and customers." class="news-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="news-card__content">
+                                <div class="news-card__date">November 2026</div>
+                                <h3 class="news-card__title">Christmas Bonus Ball: Help Us Raise Money for Charity</h3>
+                                <p class="news-card__excerpt">This Christmas we are running a Christmas Bonus Ball in store to raise money for a local charity chosen by our patients and customers. We would love as many people as possible to take part so we can raise as much as we can.</p>
+                                <p class="news-card__excerpt">Tickets are £2, and you pick a number in store. There are up to 100 tickets available, while stocks last. The winner will be announced the week of Christmas. 50% of the money goes to the winner, and 50% goes to charity. The charity will be chosen by our patients and customers in a Facebook and Instagram poll.</p>
+                                <p class="news-card__excerpt"><strong>How to take part:</strong> Come into PeakHealth Pharmacy, pick a number and buy a ticket for £2, while stocks last. Vote for the charity in our Facebook and Instagram poll, which is live now. The QR code on our leaflet takes you to our Facebook page. The winner will be announced the week of Christmas.</p>
+                                <p class="news-card__excerpt"><strong>Also this Christmas:</strong> Our Elf will be in store for children throughout the festive period, and may also be found in our 24-hour prescription collection point. Please come in store to claim your prize if you find the Elf. We also have Christmas gift sets, stocking fillers and 15ml Verset perfumes in store. Buy a 100ml Verset perfume and get a free Kenfay luxury skincare product (products worth up to £39 RRP) or a free 15ml perfume, while stocks last.</p>
+                                <a href="https://www.facebook.com/profile.php?id=100095199086008" target="_blank" rel="noopener noreferrer" class="news-card__link">Vote on Facebook</a><br>
+                                <a href="https://www.instagram.com/peakhealthpharmacy/" target="_blank" rel="noopener noreferrer" class="news-card__link">Follow us on Instagram</a>
+                            </div>
+                        </article>
+
                         <article class="news-card">
                             <div class="news-card__image">
                                 <img src="images/Weightloss image panel.avif" alt="Oral weight management treatment options at PeakHealth Pharmacy, Easterhouse" class="news-img" loading="lazy" decoding="async">
