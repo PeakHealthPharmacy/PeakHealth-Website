@@ -1848,6 +1848,15 @@ section {
     .header__cta {
         display: none;
     }
+
+    /* The header booking button is hidden on small screens. Show that same button inside the open menu. */
+    .nav.active .header__cta {
+        display: block;
+        position: static;
+        width: 100%;
+        margin: 1.25rem 0 0;
+        text-align: center;
+    }
     
     body.no-scroll {
         overflow: hidden;

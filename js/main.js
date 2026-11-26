@@ -320,7 +320,22 @@ document.addEventListener('DOMContentLoaded', function() {
         backdrop.className = 'nav-backdrop';
         document.body.appendChild(backdrop);
         
+        const headerCta = document.querySelector('.header__cta');
+
+        function placeBookingButtonInMenu() {
+            if (headerCta && isMobileDevice() && headerCta.parentElement !== nav) {
+                nav.appendChild(headerCta);
+            }
+        }
+
+        function restoreBookingButton() {
+            if (headerCta && headerCta.parentElement === nav && menuToggle.parentElement) {
+                menuToggle.parentElement.insertBefore(headerCta, menuToggle);
+            }
+        }
+
         function openMenu() {
+            placeBookingButtonInMenu();
             menuToggle.classList.add('active');
             nav.classList.add('active');
             backdrop.classList.add('active');
@@ -332,6 +347,7 @@ document.addEventListener('DOMContentLoaded', function() {
             nav.classList.remove('active');
             backdrop.classList.remove('active');
             document.body.classList.remove('no-scroll');
+            restoreBookingButton();
         }
         
         menuToggle.addEventListener('click', function(e) {
@@ -874,7 +890,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { title: 'Ear Care',                        url: 'pharmacy-first',               icon: 'fa-plus-square',    keywords: ['ear', 'ear care', 'earache', 'ear infection', 'ear wax', 'earwax', 'ear pain'] },
         { title: 'Blood Pressure',                  url: 'health-screenings',            icon: 'fa-heart',          keywords: ['blood pressure', 'hypertension', 'bp', 'bp check', 'systolic', 'high blood pressure'] },
         { title: 'Private Services',                url: 'services#private-services',    icon: 'fa-star',           keywords: ['private', 'private services', 'private consultation', 'pay', 'no prescription', 'clinic'] },
-        { title: 'Book a Consultation',             url: 'book-consultation',            icon: 'fa-calendar-check', keywords: ['book', 'booking', 'appointment', 'book consultation', 'book appointment', 'schedule', 'reserve'] },
+        { title: 'Book a Consultation',             url: 'https://widget.digipharma.co.uk/book/peakhealth-pharmacy', icon: 'fa-calendar-check', keywords: ['book', 'booking', 'appointment', 'book consultation', 'book appointment', 'schedule', 'reserve'] },
         { title: 'Contact Us',                      url: 'contact',                      icon: 'fa-phone',          keywords: ['contact', 'phone', 'email', 'address', 'opening hours', 'location', 'get in touch', 'call', 'open', 'hours'] },
         { title: 'Prescription Sign Up',            url: 'contact#delivery-signup',      icon: 'fa-clipboard-list', keywords: ['sign up', 'delivery signup', 'register', 'prescription delivery sign up', 'join', 'register for delivery'] },
         { title: 'About PeakHealth',                url: 'about',                        icon: 'fa-info-circle',    keywords: ['about', 'about us', 'team', 'pharmacist', 'story', 'kez', 'harvie', 'peakhealth'] },

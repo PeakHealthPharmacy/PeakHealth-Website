@@ -86,7 +86,7 @@
                         <li class="nav__item"><a href="contact" class="nav__link">Contact</a></li>
                     </ul>
                 </nav>
-                <a href="book-consultation" class="btn btn--primary header__cta nav__link--active">Book A Consultation</a>
+                <a href="https://widget.digipharma.co.uk/book/peakhealth-pharmacy" class="btn btn--primary header__cta nav__link--active">Book A Consultation</a>
                 <button class="menu-toggle" aria-label="Toggle menu">
                     <span class="menu-toggle__bar"></span>
                     <span class="menu-toggle__bar"></span>
@@ -107,44 +107,16 @@
                     </ol>
                 </nav>
                 <h1 class="section-title">Book a consultation <span class="page-header__kicker" style="font-size: 0.5em; display: block; margin-top: 0.5rem;">PeakHealth Pharmacy, Easterhouse, Glasgow</span></h1>
-                <div class="form-container" style="max-width: 100%; padding: 0;">
+                <div class="form-container">
                     <p class="form-intro" style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1.5rem; text-align: center;">Schedule an appointment with our pharmacists on <strong>Lochend Road, Easterhouse (G34)</strong> — private services, medication reviews or <a href="pharmacy-first">NHS Pharmacy First</a>. Prefer the phone? Call <a href="tel:01417732003">0141&nbsp;773&nbsp;2003</a>.</p>
-                    
-                    <iframe id='cliniko-41223407' title="Book an appointment online with PeakHealth Pharmacy" src='https://peakhealth-pharmacy.uk2.cliniko.com/bookings?embedded=true' frameborder='0' scrolling='auto' width='100%' height='1000' style='pointer-events: auto;'></iframe>
-                    <script type='text/javascript'>
-                        // Get service parameter from URL
-                        const urlParams = new URLSearchParams(window.location.search);
-                        const serviceParam = urlParams.get('service');
-                        
-                        // Update iframe source with service parameter if present
-                        if (serviceParam) {
-                            const iframe = document.getElementById('cliniko-41223407');
-                            let src = iframe.src;
-                            
-                            if (src.includes('?')) {
-                                src += '&service=' + encodeURIComponent(serviceParam);
-                            } else {
-                                src += '?service=' + encodeURIComponent(serviceParam);
-                            }
-                            
-                            iframe.src = src;
-                        }
-                    
-                        // Handle iframe resizing
-                        window.addEventListener('message', function handleIFrameMessage (e) {
-                            var clinikoBookings = document.getElementById('cliniko-41223407');
-                            if (typeof e.data !== 'string') return;
-                            if (e.data.search('cliniko-bookings-resize') > -1) {
-                                var height = Number(e.data.split(':')[1]);
-                                clinikoBookings.style.height = height + 'px';
-                            }
-                            e.data.search('cliniko-bookings-page') > -1 && clinikoBookings.scrollIntoView();
-                        });
-                    </script>
-                    
+                    <p style="text-align: center;">Choose your service and a time that suits you.</p>
+                    <div class="form-btn" style="margin-top: 0.5rem;">
+                        <a href="https://widget.digipharma.co.uk/book/peakhealth-pharmacy" class="btn btn--primary btn--large">Book your appointment</a>
+                    </div>
+
                     <div style="margin-top: 2rem; padding: 1.5rem; background-color: rgba(76, 175, 80, 0.1); border-radius: 8px; border-left: 4px solid var(--color-primary);">
-                        <p><strong>Having trouble with the booking system?</strong> You can also request an appointment by emailing us at <a href="mailto:info@peakhealthpharmacy.co.uk">info@peakhealthpharmacy.co.uk</a> with your preferred date, time, and service.</p>
-                        </div>
+                        <p style="margin-bottom: 0;"><strong>Having trouble with the booking system?</strong> You can also request an appointment by emailing us at <a href="mailto:info@peakhealthpharmacy.co.uk">info@peakhealthpharmacy.co.uk</a> with your preferred date, time, and service.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -201,58 +173,7 @@
     </footer>
 
     <script src="js/main.js" defer></script>
-    <!-- Add Email.js library -->
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>
-        // Initialize Email.js with your user ID
-        (function() {
-            emailjs.init("YOUR_USER_ID"); // Replace with your actual Email.js user ID
-        })();
-
-        // Detect when a booking is completed in the Cliniko iframe
-        window.addEventListener('message', function(e) {
-            if (typeof e.data !== 'string') return;
-            
-            // Listen for Cliniko booking completed event
-            if (e.data.search('cliniko-bookings-booking-created') > -1) {
-                // Extract booking information from the message
-                const bookingData = e.data.split(':')[1];
-                let bookingInfo;
-                
-                try {
-                    bookingInfo = JSON.parse(bookingData);
-                } catch (error) {
-                    console.error("Error parsing booking data:", error);
-                    return;
-                }
-                
-                // Send notification email to the pharmacy
-                emailjs.send(
-                    "default_service", // Replace with your Email.js service ID
-                    "template_booking", // Replace with your Email.js template ID
-                    {
-                        to_email: "info@peakhealthpharmacy.co.uk",
-                        subject: "New Online Booking Notification",
-                        message: `A new booking has been made through the website.
-                        
-Patient: ${bookingInfo.patient_name || 'Not provided'}
-Service: ${bookingInfo.service_name || 'Not provided'}
-Date: ${bookingInfo.start_time ? new Date(bookingInfo.start_time).toLocaleDateString() : 'Not provided'}
-Time: ${bookingInfo.start_time ? new Date(bookingInfo.start_time).toLocaleTimeString() : 'Not provided'}
-
-This is an automated notification. The appointment details will also be available in your Cliniko system.`
-                    }
-                ).then(
-                    function(response) {
-                        console.log("Booking notification sent successfully");
-                    },
-                    function(error) {
-                        console.error("Error sending booking notification:", error);
-                    }
-                );
-            }
-        });
-
         // Show/hide "Other service" field when "Other" is selected
         document.getElementById('service') && document.getElementById('service').addEventListener('change', function() {
             const otherServiceContainer = document.getElementById('other-service-container');
@@ -328,12 +249,7 @@ This is an automated notification. The appointment details will also be availabl
                 
                 const container = document.querySelector('.form-container');
                 if (container) {
-                    const cliniko = document.getElementById('cliniko-41223407');
-                    if (cliniko) {
-                        cliniko.parentNode.insertBefore(errorDiv, cliniko);
-                    } else {
-                        container.prepend(errorDiv);
-                    }
+                    container.prepend(errorDiv);
                 }
             }
         });
