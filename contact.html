@@ -699,13 +699,20 @@
         });
         
         // Delivery Service checkbox toggle for delivery instructions
-        document.getElementById('service-delivery').addEventListener('change', function() {
+        const serviceDelivery = document.getElementById('service-delivery');
+        if (serviceDelivery) {
+        serviceDelivery.addEventListener('change', function() {
             const deliveryInstructions = document.getElementById('delivery-instructions-container');
-            deliveryInstructions.style.display = this.checked ? 'block' : 'none';
+            if (deliveryInstructions) {
+                deliveryInstructions.style.display = this.checked ? 'block' : 'none';
+            }
         });
+        }
         
         // Show notifications for services requiring mobile numbers
-        document.getElementById('service-24hr').addEventListener('change', function() {
+        const service24hr = document.getElementById('service-24hr');
+        if (service24hr) {
+        service24hr.addEventListener('change', function() {
             if (this.checked) {
                 // Create popup notification for 24hr service
                 const notification = document.createElement('div');
@@ -732,8 +739,11 @@
                 }, 5000);
             }
         });
+        }
         
-        document.getElementById('service-text').addEventListener('change', function() {
+        const serviceText = document.getElementById('service-text');
+        if (serviceText) {
+        serviceText.addEventListener('change', function() {
             if (this.checked) {
                 // Create popup notification for text service
                 const notification = document.createElement('div');
@@ -760,6 +770,7 @@
                 }, 5000);
             }
         });
+        }
         
         // Initialize signature pad
         document.addEventListener('DOMContentLoaded', function() {
