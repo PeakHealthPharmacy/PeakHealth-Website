@@ -1715,7 +1715,6 @@ section {
     .nav.active {
         left: 0;
         pointer-events: auto;
-        padding-bottom: 5.5rem;
     }
     
     /* Mobile menu backdrop overlay - REMOVED darkening, just invisible */
@@ -1851,15 +1850,11 @@ section {
     }
 
     /* The header booking button is hidden on small screens. Show that same button inside the open menu. */
-    .nav.active ~ .header__cta {
+    .nav.active .header__cta {
         display: block;
-        position: fixed;
-        z-index: 1100;
-        left: 1.25rem;
-        bottom: 1.25rem;
-        width: calc(80vw - 2.5rem);
-        max-width: calc(300px - 2.5rem);
-        margin: 0;
+        position: static;
+        width: 100%;
+        margin: 1.25rem 0 0;
         text-align: center;
     }
     

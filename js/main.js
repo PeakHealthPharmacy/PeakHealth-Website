@@ -320,7 +320,22 @@ document.addEventListener('DOMContentLoaded', function() {
         backdrop.className = 'nav-backdrop';
         document.body.appendChild(backdrop);
         
+        const headerCta = document.querySelector('.header__cta');
+
+        function placeBookingButtonInMenu() {
+            if (headerCta && isMobileDevice() && headerCta.parentElement !== nav) {
+                nav.appendChild(headerCta);
+            }
+        }
+
+        function restoreBookingButton() {
+            if (headerCta && headerCta.parentElement === nav && menuToggle.parentElement) {
+                menuToggle.parentElement.insertBefore(headerCta, menuToggle);
+            }
+        }
+
         function openMenu() {
+            placeBookingButtonInMenu();
             menuToggle.classList.add('active');
             nav.classList.add('active');
             backdrop.classList.add('active');
@@ -332,6 +347,7 @@ document.addEventListener('DOMContentLoaded', function() {
             nav.classList.remove('active');
             backdrop.classList.remove('active');
             document.body.classList.remove('no-scroll');
+            restoreBookingButton();
         }
         
         menuToggle.addEventListener('click', function(e) {
